@@ -10,6 +10,8 @@ public class UI extends PApplet
     MovingCircle mc;
     Radar r;
     Radar r2;
+    RadarBorder border;
+    RadarBorder border2;
 
     boolean[] keys = new boolean[1024];
 
@@ -41,7 +43,9 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new Radar(100, 200, 100, this);
-        r2 = new Radar(50,100,100,this);        
+        r2 = new Radar(50,100,100,this);  
+        border = new RadarBorder(200,100 , 200, 50,this,"Nice Person helped me");
+        border2 = new RadarBorder(300,250,200,50,this,"Mean Person helped me");     
     }
 
     public void draw()
@@ -54,6 +58,8 @@ public class UI extends PApplet
 
         r.render();
         r2.render();
+        border.render();
+        border2.render();
 
         if (checkKey(LEFT))
         {
