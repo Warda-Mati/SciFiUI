@@ -10,7 +10,9 @@ public class UI extends PApplet
     RadarBorder border;
     RadarBorder border2;
     RadarBorder border3;
-    Rectangles rec; // small rectangles  
+    Rectangles rec; // small rectangles  above squares  
+    SquareButtons button; // squares at the bottom 
+    HorizontalLines horizonline; // line at the bottom 
 
     boolean[] keys = new boolean[1024];
 
@@ -31,8 +33,7 @@ public class UI extends PApplet
     
     public void settings()
     {
-        fullScreen();
-        // Use fullscreen instead of size to make your interface fullscreen
+        fullScreen();  // Use fullscreen instead of size to make your interface fullscreen
     }
 
     public void setup()
@@ -45,6 +46,9 @@ public class UI extends PApplet
         border2 = new RadarBorder(300,250,200,50,this,"Mean Person helped me");  
         border3 = new RadarBorder(400, 370, 200, 50, this, "I helped my self"); 
         rec = new Rectangles(600, 500, 400, 10, this); // x , y, width, height 
+        button = new SquareButtons(400,500, 80, 80,this); 
+        horizonline = new HorizontalLines(0, 750, 1350,750 , this);
+
     }
 
     public void draw()
@@ -60,6 +64,8 @@ public class UI extends PApplet
         border2.render();
         border3.render();
         rec.render();
+        button.render();
+        horizonline.render();
 
         if (checkKey(LEFT))
         {
