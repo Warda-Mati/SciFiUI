@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-public class RadarBorder{
+public class RadarBorder{  // fields 
     private int x ;
     private int y; 
     private int length;  // width 
@@ -10,7 +10,7 @@ public class RadarBorder{
     private String text; 
     PApplet ui;
 
-    public RadarBorder(int x, int y, int length, int size, PApplet ui,String text)
+    public RadarBorder(int x, int y, int length, int size, PApplet ui,String text) // constructor 
     {
         this.x = x; 
         this.y = y; 
@@ -22,8 +22,7 @@ public class RadarBorder{
 
     public void render()
     {
-        
-        
+          
         ui.noStroke();
         ui.fill(255,100,50);
         ui.stroke(255,100,50);

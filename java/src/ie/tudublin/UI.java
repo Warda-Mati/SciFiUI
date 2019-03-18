@@ -1,7 +1,4 @@
 package ie.tudublin;
-
-// warda 
-
 import processing.core.PApplet;
 
 public class UI extends PApplet
@@ -12,6 +9,8 @@ public class UI extends PApplet
     Radar r2;
     RadarBorder border;
     RadarBorder border2;
+    RadarBorder border3;
+    Rectangles rec; // small rectangles  
 
     boolean[] keys = new boolean[1024];
 
@@ -30,12 +29,10 @@ public class UI extends PApplet
         return keys[c] || keys [Character.toUpperCase(c)];
     }
     
-
     public void settings()
     {
         fullScreen();
         // Use fullscreen instead of size to make your interface fullscreen
-        //fullScreen(); 
     }
 
     public void setup()
@@ -45,21 +42,24 @@ public class UI extends PApplet
         r = new Radar(100, 200, 100, this);
         r2 = new Radar(50,100,100,this);  
         border = new RadarBorder(200,100 , 200, 50,this,"Nice Person helped me");
-        border2 = new RadarBorder(300,250,200,50,this,"Mean Person helped me");     
+        border2 = new RadarBorder(300,250,200,50,this,"Mean Person helped me");  
+        border3 = new RadarBorder(400, 370, 200, 50, this, "I helped my self"); 
+        rec = new Rectangles(600, 500, 400, 10, this); // x , y, width, height 
     }
 
     public void draw()
     {
         background(0);
-        b.render();
-
-        mc.update();
-        mc.render();
+        // b.render();
+        // mc.update();
+        // mc.render();
 
         r.render();
         r2.render();
         border.render();
         border2.render();
+        border3.render();
+        rec.render();
 
         if (checkKey(LEFT))
         {
