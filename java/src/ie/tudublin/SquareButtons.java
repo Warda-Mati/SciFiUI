@@ -27,6 +27,8 @@ public class SquareButtons{
 
 
     public void render(){
+        ui.fill(0,0,0);
+        ui.stroke(0,153,204);
         ui.rect(x, y, length, length);
         //ui.line(x1, y1, x2, y2);
     }

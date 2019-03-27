@@ -1,8 +1,12 @@
 package ie.tudublin;
-import processing.core.PApplet;
 
+import java.util.ArrayList;
+import processing.core.PApplet;
 public class UI extends PApplet
 {
+    ArrayList<Radar> radars = new ArrayList<Radar>();
+    ArrayList<RadarBorder> borders = new ArrayList<RadarBorder>();
+     
     Button b;
     MovingCircle mc;
     Radar r;
@@ -13,6 +17,7 @@ public class UI extends PApplet
     Rectangles rec; // small rectangles  above squares  
     SquareButtons button; // squares at the bottom 
     HorizontalLines horizonline; // line at the bottom 
+    Rectangles rec1; // rectangles at the bottom of the square buttons
 
     boolean[] keys = new boolean[1024];
 
@@ -38,16 +43,31 @@ public class UI extends PApplet
 
     public void setup()
     {
+        colorMode(HSB);
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
-        r = new Radar(100, 200, 100, this);
-        r2 = new Radar(50,100,100,this);  
-        border = new RadarBorder(200,100 , 200, 50,this,"Nice Person helped me");
-        border2 = new RadarBorder(300,250,200,50,this,"Mean Person helped me");  
-        border3 = new RadarBorder(400, 370, 200, 50, this, "I helped my self"); 
-        rec = new Rectangles(600, 500, 400, 10, this); // x , y, width, height 
-        button = new SquareButtons(400,500, 80, 80,this); 
-        horizonline = new HorizontalLines(0, 750, 1350,750 , this);
+        r = new Radar(900, 700, 50, this);
+        r2 = new Radar(50,100,50,this);  
+        border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
+        border2 = new RadarBorder(width/2 +100,height/2 - 100,80,10,this,"Balanced");  
+        border3 = new RadarBorder(width/2 + 200, height/2-100, 80, 10, this, "Balanced"); 
+        rec = new Rectangles(600, 500, 400, 10,this, 240); // x , y, width, height , colour 
+        rec1 = new Rectangles(10, 730, 100, 10, this,264);
+        button = new SquareButtons(400,500, 50, 50,this); 
+        horizonline = new HorizontalLines(0, 750, width - 40 , this);
+
+        for (int i=0; i < 10; i++) // circle | radar 
+        {
+            Radar rr = new Radar(i *50, 200, 50, this);
+            radars.add(rr);
+        }
+
+        for (int i=0; i < 3; i++) // radar border 
+        {
+            RadarBorder bb = new RadarBorder(i* 50 , height/2 -100, 80, 10, this , "Balance");
+            borders.add(bb);
+        }
+       
 
     }
 
@@ -57,15 +77,25 @@ public class UI extends PApplet
         // b.render();
         // mc.update();
         // mc.render();
-
         r.render();
         r2.render();
         border.render();
         border2.render();
         border3.render();
-        rec.render();
+        rec.render(false);
+        rec1.render(true);
         button.render();
         horizonline.render();
+
+        for(Radar rr: radars) // radar , CIRCLE WITH LINES IN IT 
+        {
+            rr.render();
+        }
+
+        for(RadarBorder bb: borders) // radar , CIRCLE WITH LINES IN IT 
+        {
+            bb.render();
+        }
 
         if (checkKey(LEFT))
         {
