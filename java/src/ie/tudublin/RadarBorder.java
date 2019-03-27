@@ -23,7 +23,7 @@ public class RadarBorder extends UIElement {// fields
     public void render()
     { 
         int gap = 25;
-        int radius;
+        
         // y + go down | y - go up | x + going right| x - going left 
         int linedistance = 100;  
         ui.noStroke();

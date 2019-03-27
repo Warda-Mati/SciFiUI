@@ -6,6 +6,9 @@ public class UI extends PApplet
 {
     ArrayList<Radar> radars = new ArrayList<Radar>();
     ArrayList<RadarBorder> borders = new ArrayList<RadarBorder>();
+    ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>();
+  //  ArrayList<UIElement> elements = new ArrayList<>();
+
      
     Button b;
     MovingCircle mc;
@@ -14,10 +17,11 @@ public class UI extends PApplet
     RadarBorder border;
     RadarBorder border2;
     RadarBorder border3;
-    Rectangles rec; // small rectangles  above squares  
     SquareButtons button; // squares at the bottom 
     HorizontalLines horizonline; // line at the bottom 
+    Rectangles rec; // small rectangles  above squares  
     Rectangles rec1; // rectangles at the bottom of the square buttons
+    Rectangles rec2; // first on the left corner with the text arrange 
 
     boolean[] keys = new boolean[1024];
 
@@ -53,20 +57,33 @@ public class UI extends PApplet
         border3 = new RadarBorder(width/2 + 200, height/2-100, 80, 10, this, "Balanced"); 
         rec = new Rectangles(600, 500, 400, 10,this, 240); // x , y, width, height , colour 
         rec1 = new Rectangles(10, 730, 100, 10, this,264);
-        button = new SquareButtons(400,500, 50, 50,this); 
+        rec2 = new Rectangles(5, 650, 100, 20, this, 222);
+        button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
 
         for (int i=0; i < 10; i++) // circle | radar 
         {
-            Radar rr = new Radar(i *50, 200, 50, this);
+            Radar rr = new Radar(i *55, 200, 50, this);
             radars.add(rr);
         }
 
-        for (int i=0; i < 3; i++) // radar border 
+        for (int i=0; i < 9; i++) // radar border 
         {
-            RadarBorder bb = new RadarBorder(i* 50 , height/2 -100, 80, 10, this , "Balance");
+            RadarBorder bb = new RadarBorder(i* 105 , height/2 -100, 80, 10, this , "Balance");
             borders.add(bb);
         }
+        for (int i=0; i < 3; i++) // radar border 
+        {
+            SquareButtons but = new SquareButtons(50, i*120, 50, this);
+            buttons.add(but);
+        }
+
+        // for (int i=0; i < 3; i++) // radar border 
+        // {
+        //      elements  = new SquareButtons(i*50, 500, 50,this);
+           
+        // }
+        
        
 
     }
@@ -79,11 +96,12 @@ public class UI extends PApplet
         // mc.render();
         r.render();
         r2.render();
-        border.render();
-        border2.render();
-        border3.render();
+        // border.render();
+        // border2.render();
+        // border3.render();
         rec.render(false);
         rec1.render(true);
+        rec2.render(true);
         button.render();
         horizonline.render();
 
@@ -95,6 +113,11 @@ public class UI extends PApplet
         for(RadarBorder bb: borders) // radar , CIRCLE WITH LINES IN IT 
         {
             bb.render();
+        }
+
+        for(SquareButtons bt: buttons) // 
+        {
+            bt.render();
         }
 
         if (checkKey(LEFT))

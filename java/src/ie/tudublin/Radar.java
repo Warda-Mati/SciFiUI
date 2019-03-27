@@ -2,19 +2,17 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-public class Radar // class radar 
+public class Radar extends UIElement // class radar 
 {
-    private float x; // fields | circle | x, y, radius, diameter
-    private float y;
+    // fields | circle | x, y, radius, diameter
+
     private float radius;
     private float diameter;
-    PApplet ui; // papplet is a class , 
+     // papplet is a class , 
 
     public Radar(float x, float y, float diameter, PApplet ui) 
     {
-        this.ui = ui;
-        this.x = x;
-        this.y = y;
+        super(x, y, ui);
         this.diameter = diameter;
         radius = diameter/2;
     }

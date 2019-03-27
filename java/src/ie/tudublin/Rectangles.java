@@ -2,18 +2,16 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-public class Rectangles{
-    private int x; 
-    private int y; 
+public class Rectangles extends UIElement{
+   
     private int size;
     private int length; 
     int hue;
-    PApplet  ui; 
+   
 
     public Rectangles(int x, int y, int size, int length, PApplet ui, int hue)
     {
-        this. x = x;
-        this. y = y;
+        super(x, y, ui);
         this. size = size; 
         this. length = length; 
         this.ui = ui;  

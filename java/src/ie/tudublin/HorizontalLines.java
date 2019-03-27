@@ -7,8 +7,6 @@ public class HorizontalLines extends UIElement
 
     private float distance;
 
-    
-
 
 public HorizontalLines(float x, float y, float distance, PApplet ui)
 {
@@ -19,20 +17,13 @@ public HorizontalLines(float x, float y, float distance, PApplet ui)
 
 
 public void render()
+
 {
+    ui.strokeWeight(5);
     ui.line(x, y, x + distance, y);
+    ui.strokeWeight(1);
 }
 
-
-
-
-
-
-
-
-
-
-
-
+    
 
 }
