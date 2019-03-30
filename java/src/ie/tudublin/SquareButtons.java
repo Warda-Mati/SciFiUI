@@ -28,9 +28,11 @@ public class SquareButtons extends UIElement{
 
 
     public void render(){
-        ui.fill(0,0,0);
+        ui.noFill();
         ui.stroke(0,153,204);
         ui.rect(x, y, length, length);
+        ui.fill(0,153,204);
+        ui.rect(x+length/4,y+length/4,length/2,length/2);
         //ui.line(x1, y1, x2, y2);
     }
 
