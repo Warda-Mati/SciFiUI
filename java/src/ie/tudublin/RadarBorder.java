@@ -1,4 +1,6 @@
 package ie.tudublin;
+
+
 import processing.core.PApplet;
 
 public class RadarBorder extends UIElement {// fields 
@@ -15,14 +17,14 @@ public class RadarBorder extends UIElement {// fields
         super(x, y, ui);
         this.length = length; 
         this.size = size; 
-       // this.diameter = diameter; 
+        //this.diameter = diameter; 
         this.text = text;
        // radius = diameter/2;
     }
 
     public void render()
     { 
-        int gap = 25;
+        int gap = 10;
         
         // y + go down | y - go up | x + going right| x - going left 
         int linedistance = 100;  
@@ -30,7 +32,7 @@ public class RadarBorder extends UIElement {// fields
         ui.fill(255,100,50);
         ui.stroke(255,100,50);
         // ui.line(x-20,y,x-20,y+linedistance); // left line 
-        ui.line((x+length)+20, y, (x+length)+20, y+linedistance); // right line 
+        ui.line((x+length)+gap, y, (x+length)+gap, y+linedistance); // right line 
         // ui.line(x + length + gap, y, x+gap + length, y+distance );
         ui.rect(x, y, length, size); // x, y, width, height
         ui.fill(255); 
@@ -39,9 +41,29 @@ public class RadarBorder extends UIElement {// fields
         ui.textSize(10);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text(text,x+(length/2),y+(size/2));
+
+        float linelength = linedistance - size;
+        float diameter = (linelength/2) - gap;
+        //circles drawn
+        ui.noFill();
+        ui.stroke(0,250,250);
+        ui.ellipse(x+(length/4),y+(size + (linelength/4) ), diameter, diameter);
+        ui.ellipse(x+(3*(length/4)),y+(size + (linelength/4) ), diameter, diameter);
+        ui.ellipse(x+(length/4),y+(size + 3*(linelength/4) ), diameter, diameter);
+        ui.ellipse(x+(3*(length/4)),y+(size + 3*(linelength/4) ), diameter, diameter);
+
+        //lines drawn
+        ui.fill(255);
+        ui.line(x+(length/4),y+(size + (linelength/4) - (diameter/2)), x+(length/4),y+(size + (linelength/4) - (diameter/2) + gap)); 
+        ui.line(x+3*(length/4),y+(size + (linelength/4) - (diameter/2)), x+3*(length/4),y+(size + (linelength/4) - (diameter/2) + gap)); 
+        ui.line(x+(length/4),y+(size + 3*(linelength/4) - (diameter/2)), x+(length/4),y+(size + 3*(linelength/4) - (diameter/2) + gap)); 
+        ui.line(x+3*(length/4),y+(size + 3*(linelength/4) - (diameter/2)), x+3*(length/4),y+(size + 3*(linelength/4) - (diameter/2) + gap)); 
+
+
        // ui.ellipse(x, y, diameter, diameter);
 
-       ui.noFill();
+      /* ui.noFill();
+      
 
        ui.stroke(255,255,102);
        ui.line(x+(length/6),y+30,x+(length/6),y+ 17);
@@ -68,7 +90,7 @@ public class RadarBorder extends UIElement {// fields
     //    ui.stroke(255,255,102);
     //    ui.line(x,(y-radius),x,(y-radius) + 10);  
     //    ui.stroke(102,153,255);
-    //    ui.ellipse(x,y,diameter,diameter); 
+    //    ui.ellipse(x,y,diameter,diameter); */
     } 
 }
 
