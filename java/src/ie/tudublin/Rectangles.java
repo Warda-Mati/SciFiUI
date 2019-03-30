@@ -7,56 +7,39 @@ public class Rectangles extends UIElement{
     private int size;
     private int length; 
     int hue;
+    // int red;
+    // int green;
+    // int blue;
    
 
-    public Rectangles(int x, int y, int size, int length, PApplet ui, int hue)
+    public Rectangles(int x, int y, int size, int length, PApplet ui, int hue/*int red,int green,int blue*/)
     {
         super(x, y, ui);
         this. size = size; 
         this. length = length; 
         this.ui = ui;  
-       this. hue = hue;
+        this.hue = hue;
+    //    this.red = red;
+    //    this.green = green;
+    //    this.blue = blue;
+       
     }
 
 
-    public void render (boolean fill)
+    public void render () // it was boolean fill 
     {
-        if(fill = true)
-        {
-            ui.fill(hue,255,255);
-        }
-        else
-        {
-            ui.noFill();
-            ui.stroke(hue,255,255);
-        }
+        // if(fill = true)
+        // {
+        //     ui.fill(red,green,blue);
+        // }
+        // else
+        // {
+        //     ui.noFill();
+        //     ui.stroke(red,green,blue);
+        // }
        
        ui.rect(x, y, size, length);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
