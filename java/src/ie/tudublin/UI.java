@@ -5,10 +5,11 @@ import processing.core.PApplet;
 public class UI extends PApplet
 {
    // ArrayList<Radar> radars = new ArrayList<Radar>();
-    ArrayList<RadarBorder> borders = new ArrayList<RadarBorder>();
-    ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>();
-    ArrayList<Rectangles> brects = new ArrayList<Rectangles>(); // rects above line at the bottom 
-    ArrayList<HorizontalLines> lines = new ArrayList<HorizontalLines>();
+    ArrayList<RadarBorder> borders = new ArrayList<RadarBorder>(); // radar boerder with circle inside 
+    ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>(); // square button at the bottom 
+    ArrayList<Rectangles> brects = new ArrayList<Rectangles>(); // rects above line at the bottom  below square button 
+    ArrayList<HorizontalLines> lines = new ArrayList<HorizontalLines>(); // small line onn the LHS 
+    ArrayList<VerticlesLines> vline = new ArrayList<VerticlesLines>(); // verticle lines at the bottom below square buttons 
    
      
     Button b;
@@ -68,12 +69,14 @@ public class UI extends PApplet
 
         for (int i=0; i < 9; i++) // radar border 
         {
-            RadarBorder bb = new RadarBorder(i* 105 , height/2 +50, 80, 20, this , "Balance"); // x (distance), y, move up/down, size 
+            RadarBorder bb = new RadarBorder(250+(i* 105) , height/2 +50, 80, 10, this , "Balance"); // x (distance), y, move up/down, size 
             borders.add(bb);
         }
-        for (int i=0; i < 3; i++) // Square buttons 
+        for (int i=0; i < 16; i++) // Square buttons 
         {
-            SquareButtons but = new SquareButtons(50, i*120, 50, this);
+            fill(255);
+            SquareButtons but = new SquareButtons(250+(i*60), 600, 50, this);
+            
             buttons.add(but);
         }
 
@@ -90,10 +93,15 @@ public class UI extends PApplet
             lines.add(slines);
         }
 
-       
 
-        
-       
+        for (int i=0; i < 20; i++) // lines
+        {
+            VerticlesLines vline1 = new VerticlesLines(250+(i*50), 680, 20, this);
+            vline.add(vline1); 
+        }
+
+
+
 
     }
 
@@ -125,6 +133,13 @@ public class UI extends PApplet
 
         for(SquareButtons bt: buttons) // 
         {
+
+            for(int i = 0; i < 16; i++)
+            {
+                int num = i + 1;
+                textSize(10);
+                text(num,250+(i*60) + 25,580);
+            }
             bt.render();
         }
 
@@ -136,6 +151,11 @@ public class UI extends PApplet
         for(HorizontalLines slines: lines) // 
         {
             slines.render();
+        }
+
+        for (VerticlesLines vline1: vline )
+        {
+            vline1.render();
         }
 
         

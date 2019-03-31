@@ -10,6 +10,7 @@ public class SquareButtons extends UIElement{
     // private float y1;
     // private float y2;
     private float length; 
+ 
     
   
 
@@ -35,7 +36,6 @@ public class SquareButtons extends UIElement{
         ui.rect(x+length/4,y+length/4,length/2,length/2);
         ui.fill(255);
         ui.textSize(10);
-        ui.text("1",x+length/2,y-10);
         //ui.line(x1, y1, x2, y2);
     }
 
