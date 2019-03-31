@@ -9,7 +9,7 @@ public class UI extends PApplet
     ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>();
     ArrayList<Rectangles> brects = new ArrayList<Rectangles>(); // rects above line at the bottom 
     ArrayList<HorizontalLines> lines = new ArrayList<HorizontalLines>();
- 
+   
      
     Button b;
     MovingCircle mc;
@@ -54,9 +54,9 @@ public class UI extends PApplet
         border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
         border2 = new RadarBorder(width/2 +100,height/2 - 100,80,10,this,"Balanced");  
         border3 = new RadarBorder(width/2 + 200, height/2-100, 80, 10, this, "Balanced"); 
-        rec = new Rectangles(700, 500, 400, 10,this, 125); // x , y, width, height , colour 
-        rec1 = new Rectangles(50, 730, 100, 10, this,235);
-        rec2 = new Rectangles(5, 650, 100, 20, this, 234);
+        rec = new Rectangles(700, 500, 400, 10,this, 125,89,0); // x , y, width, height , colour 
+        rec1 = new Rectangles(50, 730, 100, 10, this,235,90,78);
+        rec2 = new Rectangles(5, 650, 100, 20, this, 234,5,6);
         button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
 
@@ -78,9 +78,9 @@ public class UI extends PApplet
         }
 
 
-        for (int i=0; i < 7; i++) //  rects at the bottom 
+        for (int i=0; i < 6; i++) //  rects at the bottom 
         {
-           Rectangles rec = new Rectangles(i* 50, 400, 30, 50, this,224);
+           Rectangles rec = new Rectangles(250+(i*150), 720, 135, 20, this,255,0,0); //width, move up/down,  distance , height 
            brects.add(rec);
         }
 
@@ -89,6 +89,8 @@ public class UI extends PApplet
             HorizontalLines slines = new HorizontalLines(10, i* 20, 20, this);
             lines.add(slines);
         }
+
+       
 
         
        
@@ -135,6 +137,8 @@ public class UI extends PApplet
         {
             slines.render();
         }
+
+        
 
         if (checkKey(LEFT))
         {
