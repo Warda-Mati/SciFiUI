@@ -18,8 +18,8 @@ public class UI extends PApplet
    // SquareButtons button; // squares at the bottom 
     HorizontalLines horizonline; // line at the bottom 
    // Rectangles rec; // small  narrow long rectangles  above squares  
-    Rectangles rec1; // rectangles at the bottom of the square buttons
-    Rectangles rec2; // first on the left corner with the text arrange 
+    Rectangles rec; // rectangles at the bottom of the square buttons
+    Rectangles rec1; // first on the left corner with the text arrange 
 
     boolean[] keys = new boolean[1024];
     public void keyPressed()
@@ -50,8 +50,8 @@ public class UI extends PApplet
       //  r = new Radar(900, 700, 50, this);
         border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
        // rec = new Rectangles(700, 500, 400, 10,this, 125,89,0); // x , y, width, height , colour 
-        rec1 = new Rectangles(50, 730, 100, 10, this,235,90,78);
-        rec2 = new Rectangles(5, 650, 100, 20, this, 234,5,6);
+        rec = new Rectangles(50, 730, 100, 10, this,235,90,78);
+        rec1= new Rectangles(50, 650, 100, 90, this, 234,5,6);
       //  button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
 
@@ -79,6 +79,13 @@ public class UI extends PApplet
         for (int i=0; i < 37; i++) // lines
         {
             HorizontalLines slines = new HorizontalLines(10, i* 20, 20, this);
+            lines.add(slines);
+        }
+
+
+        for (int i=0; i < 15; i++) // lines
+        {
+            HorizontalLines slines = new HorizontalLines(1340, 150+(i* 40), 40, this);
             lines.add(slines);
         }
 
@@ -127,8 +134,8 @@ public class UI extends PApplet
       //  r.render();
         // border.render();
        // rec.render();
+        rec.render();
         rec1.render();
-        rec2.render();
      //   button.render();
         horizonline.render();
 
