@@ -21,6 +21,7 @@ public class UI extends PApplet
     Rectangles rec; // rectangles at the bottom of the square buttons
     Rectangles rec1; // first on the left corner with the text arrange 
     Rectangles rec2;
+    Rectangles rec3;
 
     boolean[] keys = new boolean[1024];
     public void keyPressed()
@@ -54,6 +55,7 @@ public class UI extends PApplet
         rec = new Rectangles(50, 400, 100, 250, this,235,90,78);
         rec1= new Rectangles(50, 690, 100, 50, this, 234,5,6);  // with text 
         rec2 = new Rectangles(50, 290, 100, 100, this, 245, 0, 78); 
+        rec3 = new Rectangles(250, 140, 250, 250, this, 0, 102,102);
       //  button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
 
@@ -61,7 +63,7 @@ public class UI extends PApplet
 
         for (int i=0; i < 9; i++) // radar border 
         {
-            RadarBorder bb = new RadarBorder(250+(i* 105) , height/2 +5, 80, 10, this , "Balance"); // x (distance), y, move up/down, size 
+            RadarBorder bb = new RadarBorder(250+(i* 105) , height/2 +20, 80, 10, this , "Balance"); // x (distance), y, move up/down, size 
             borders.add(bb);
         }
         for (int i=0; i < 16; i++) // Square buttons 
@@ -106,19 +108,19 @@ public class UI extends PApplet
 
         for (int i=0; i < 3; i++) //  rects at the bottom  
         {
-           Rectangles vrec = new Rectangles(250, 520+(i*20), 340, 6, this, 125, 89, 0); //width, move up/down,  distance , height 
+           Rectangles vrec = new Rectangles(250, 530+(i*20), 340, 6, this, 125, 89, 0); //width, move up/down,  distance , height 
            vrects.add(vrec);
         }
 
         for (int i=0; i < 3; i++) //  rects at the bottom  
         {
-           Rectangles vrec = new Rectangles(550, 520+(i*20), 340, 6, this, 125, 89, 0); //width, move up/down,  distance , height 
+           Rectangles vrec = new Rectangles(550, 530+(i*20), 340, 6, this, 125, 89, 0); //width, move up/down,  distance , height 
            vrects.add(vrec);
         }
 
         for (int i=0; i < 3; i++) //  rects at the bottom  
         {
-           Rectangles vrec = new Rectangles(860, 520+(i*20), 330, 6, this, 125, 89, 0); //width, move up/down,  distance , height 
+           Rectangles vrec = new Rectangles(860, 530+(i*20), 330, 6, this, 125, 89, 0); //width, move up/down,  distance , height 
            vrects.add(vrec);
         }
 
@@ -139,6 +141,7 @@ public class UI extends PApplet
         rec.render();
         rec1.render();
         rec2.render();
+        rec3.render();
      //   button.render();
         horizonline.render();
 
