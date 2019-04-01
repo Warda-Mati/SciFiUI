@@ -10,7 +10,7 @@ public class UI extends PApplet
     ArrayList<VerticlesLines> vline = new ArrayList<VerticlesLines>(); // verticle lines at the bottom below square buttons 
     ArrayList<Rectangles> srects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | horizontally drawn
     ArrayList<Rectangles> vrects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | vertically drawn
-    
+    ArrayList<HorizontalLines> hline = new ArrayList<HorizontalLines>();
     Button b;
     MovingCircle mc;
    // Radar r;
@@ -18,10 +18,14 @@ public class UI extends PApplet
    // SquareButtons button; // squares at the bottom 
     HorizontalLines horizonline; // line at the bottom 
    // Rectangles rec; // small  narrow long rectangles  above squares  
-    Rectangles rec; // rectangles at the bottom of the square buttons
+    Rectangles rec; //  above rect 2
     Rectangles rec1; // first on the left corner with the text arrange 
-    Rectangles rec2;
-    Rectangles rec3;
+    Rectangles rec2; // above rect 1 which is with text 
+    Rectangles rec3; // big square box where circle is gonn a be 
+    Rectangles rec4; // above rect above rec 
+    //HorizontalLines hline;
+
+    
 
     boolean[] keys = new boolean[1024];
     public void keyPressed()
@@ -56,8 +60,10 @@ public class UI extends PApplet
         rec1= new Rectangles(50, 690, 100, 50, this, 234,5,6);  // with text 
         rec2 = new Rectangles(50, 290, 100, 100, this, 245, 0, 78); 
         rec3 = new Rectangles(250, 140, 250, 250, this, 0, 102,103);
+        rec4 = new Rectangles(50, 140, 100, 130, this, 0, 103, 102);
       //  button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
+       // hline = new HorizontalLines(250, 40, 900, this);
 
        
 
@@ -125,6 +131,16 @@ public class UI extends PApplet
         }
 
 
+        for (int i=0; i < 15; i++) // lines
+        {
+            HorizontalLines hlines = new HorizontalLines(200, 50, 1100, this);
+            hline.add(hlines);
+        }
+
+
+
+
+
 
 
     }
@@ -142,6 +158,8 @@ public class UI extends PApplet
         rec1.render();
         rec2.render();
         rec3.render();
+        rec4.render();
+        //hline.render();
      //   button.render();
         horizonline.render();
 
@@ -186,6 +204,12 @@ public class UI extends PApplet
         for(Rectangles vrec: vrects) // 
         {
             vrec.render();
+        }
+
+
+        for(HorizontalLines hlines: hline) // 
+        {
+            hlines.render();
         }
 
         
