@@ -179,9 +179,9 @@ public class UI extends PApplet
         }
 
 
-        for(int i = 0; i < 60; i++)
+        for(int i = 0; i < 30; i++)
         {
-            HorizontalThinLine tline = new HorizontalThinLine(1340, 150+(i+20), 80,this); // (1340, 150+(i* 40), 40, this)
+            HorizontalThinLine tline = new HorizontalThinLine(1340, 150+(i*20), 40,this); // (1340, 150+(i* 40), 40, this)
             tlines.add(tline);
         }
 
