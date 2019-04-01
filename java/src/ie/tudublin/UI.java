@@ -11,6 +11,13 @@ public class UI extends PApplet
     ArrayList<Rectangles> srects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | horizontally drawn
     ArrayList<Rectangles> vrects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | vertically drawn
     ArrayList<HorizontalLines> hline = new ArrayList<HorizontalLines>();
+    ArrayList<HorizontalThinLine> tlines = new ArrayList<HorizontalThinLine>();
+
+
+
+
+
+
     Button b;
     MovingCircle mc;
    // Radar r;
@@ -48,6 +55,11 @@ public class UI extends PApplet
         fullScreen();  // Use fullscreen instead of size to make your interface fullscreen
     }
 
+
+
+
+
+
     public void setup()
     {
         colorMode(HSB);
@@ -67,11 +79,19 @@ public class UI extends PApplet
 
        
 
+
+
+
+
+
         for (int i=0; i < 9; i++) // radar border 
         {
             RadarBorder bb = new RadarBorder(250+(i* 105) , height/2 +20, 80, 10, this , "Balance"); // x (distance), y, move up/down, size 
             borders.add(bb);
         }
+
+
+
         for (int i=0; i < 16; i++) // Square buttons 
         {
             fill(255);
@@ -86,11 +106,16 @@ public class UI extends PApplet
            brects.add(rec);
         }
 
+
+
+
         for (int i=0; i < 37; i++) // lines
         {
             HorizontalLines slines = new HorizontalLines(10, i* 20, 20, this);
             lines.add(slines);
         }
+
+
 
 
         for (int i=0; i < 15; i++) // lines
@@ -100,17 +125,20 @@ public class UI extends PApplet
         }
 
 
+
         for (int i=0; i < 20; i++) // lines 
         {
             VerticlesLines vline1 = new VerticlesLines(250+(i*50), 690, 20, this);
             vline.add(vline1); 
         }
-
         // for (int i=0; i < 5; i++) //  rects at the bottom  
         // {   
         //    Rectangles srec = new Rectangles(250+(i*100), 500, 400, 10, this, 125, 89, 0); //width, move up/down,  distance , height 
         //    srects.add(srec); 
         // }
+
+
+
 
         for (int i=0; i < 3; i++) //  rects at the bottom  
         {
@@ -118,11 +146,15 @@ public class UI extends PApplet
            vrects.add(vrec);
         }
 
+
+
         for (int i=0; i < 3; i++) //  rects at the bottom  
         {
            Rectangles vrec = new Rectangles(550, 530+(i*20), 340, 6, this, 125, 89, 0); //width, move up/down,  distance , height 
            vrects.add(vrec);
         }
+
+
 
         for (int i=0; i < 3; i++) //  rects at the bottom  
         {
@@ -131,10 +163,26 @@ public class UI extends PApplet
         }
 
 
+
+
         for (int i=0; i < 15; i++) // lines
         {
             HorizontalLines hlines = new HorizontalLines(200, 50, 1100, this);
             hline.add(hlines);
+        }
+
+
+        for(int i = 0; i < 74; i++)
+        {
+            HorizontalThinLine tline = new HorizontalThinLine(10, i*10, 20, this);
+            tlines.add(tline);
+        }
+
+
+        for(int i = 0; i < 60; i++)
+        {
+            HorizontalThinLine tline = new HorizontalThinLine(1340, 150+(i+20), 80,this); // (1340, 150+(i* 40), 40, this)
+            tlines.add(tline);
         }
 
 
@@ -201,17 +249,22 @@ public class UI extends PApplet
         //     srec.render();
         // }
 
-        for(Rectangles vrec: vrects) // 
+        for(Rectangles vrec: vrects) 
         {
             vrec.render();
         }
 
 
-        for(HorizontalLines hlines: hline) // 
+        for(HorizontalLines hlines: hline) 
         {
             hlines.render();
         }
 
+
+        for(HorizontalThinLine tline: tlines)
+        {
+            tline.render();
+        }
         
 
         if (checkKey(LEFT))
