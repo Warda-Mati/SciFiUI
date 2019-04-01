@@ -55,7 +55,7 @@ public class UI extends PApplet
         rec = new Rectangles(50, 400, 100, 250, this,235,90,78);
         rec1= new Rectangles(50, 690, 100, 50, this, 234,5,6);  // with text 
         rec2 = new Rectangles(50, 290, 100, 100, this, 245, 0, 78); 
-        rec3 = new Rectangles(250, 140, 250, 250, this, 0, 102,102);
+        rec3 = new Rectangles(250, 140, 250, 250, this, 0, 102,103);
       //  button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
 
