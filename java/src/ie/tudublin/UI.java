@@ -10,8 +10,9 @@ public class UI extends PApplet
     ArrayList<VerticlesLines> vline = new ArrayList<VerticlesLines>(); // verticle lines at the bottom below square buttons 
     ArrayList<Rectangles> srects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | horizontally drawn
     ArrayList<Rectangles> vrects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | vertically drawn
-    ArrayList<HorizontalLines> hline = new ArrayList<HorizontalLines>();
-    ArrayList<HorizontalThinLine> tlines = new ArrayList<HorizontalThinLine>();
+    ArrayList<HorizontalLines> hline = new ArrayList<HorizontalLines>(); //  
+    ArrayList<HorizontalThinLine> tlines = new ArrayList<HorizontalThinLine>(); // thin lines added between verticle line 
+    ArrayList<VThinLines> vlines = new ArrayList<VThinLines>();
 
 
 
@@ -71,7 +72,7 @@ public class UI extends PApplet
         rec = new Rectangles(50, 400, 100, 250, this,235,90,78);
         rec1= new Rectangles(50, 690, 100, 50, this, 234,5,6);  // with text 
         rec2 = new Rectangles(50, 290, 100, 100, this, 245, 0, 78); 
-        rec3 = new Rectangles(250, 140, 250, 250, this, 0, 102,103);
+        rec3 = new Rectangles(250, 120, 250, 250, this, 0, 102,103);
         rec4 = new Rectangles(50, 140, 100, 130, this, 0, 103, 102);
       //  button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
@@ -187,6 +188,17 @@ public class UI extends PApplet
 
 
 
+        for(int i = 0; i < 94; i++)
+        {
+            VThinLines vline = new VThinLines(250+(i*10),height/2 +5, 10, this);
+            vlines.add(vline);
+        }
+
+
+
+
+
+
 
 
 
@@ -264,6 +276,12 @@ public class UI extends PApplet
         for(HorizontalThinLine tline: tlines)
         {
             tline.render();
+        }
+
+
+        for(VThinLines vline: vlines)
+        {
+            vline.render();
         }
         
 
