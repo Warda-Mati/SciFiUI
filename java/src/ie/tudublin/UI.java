@@ -202,7 +202,7 @@ public class UI extends PApplet
             vlines.add(vline);
         }
 
-        for (int i=0; i < 5; i++) // lines 
+        for (int i=0; i < 5; i++) // lines  above radar borer 
         {
             VerticlesLines vline1 = new VerticlesLines(670+(i*60), 350, 20, this);
             vline.add(vline1); 
