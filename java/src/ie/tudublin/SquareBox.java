@@ -30,7 +30,7 @@ public class SquareBox extends UIElement {
 
         ui.line(560, 280, 600, 280);
 
-        // box 
+        // box  inside border
         ui.rect(690, 220, ui.height/2 -500 , ui.height/2-500);
 
         
