@@ -30,7 +30,8 @@ public class UI extends PApplet
     Rectangles rec1; // first on the left corner with the text arrange 
     Rectangles rec2; // above rect 1 which is with text 
     Rectangles rec3; // big square box where circle is gonn a be 
-    Rectangles rec4; // above rect above rec 
+    Rectangles rec4; // above rect above rec
+    Circle circles; 
     //HorizontalLines hline;
 
     
@@ -77,9 +78,7 @@ public class UI extends PApplet
       //  button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
        // hline = new HorizontalLines(250, 40, 900, this);
-
-       
-
+       circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
 
 
 
@@ -195,6 +194,13 @@ public class UI extends PApplet
         }
 
 
+        for(int i = 0; i < 94; i++)
+        {
+            VThinLines vline = new VThinLines(250+(i*10),height/2 +125, 10, this);
+            vlines.add(vline);
+        }
+
+
 
 
 
@@ -219,6 +225,7 @@ public class UI extends PApplet
         rec2.render();
         rec3.render();
         rec4.render();
+        circles.render();
         //hline.render();
      //   button.render();
         horizonline.render();
