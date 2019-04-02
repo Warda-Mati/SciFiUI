@@ -31,7 +31,8 @@ public class UI extends PApplet
     Rectangles rec2; // above rect 1 which is with text 
     Rectangles rec3; // big square box where circle is gonn a be 
     Rectangles rec4; // above rect above rec
-    Circle circles; 
+    Circle circles;
+    SquareBox box; 
     //HorizontalLines hline;
 
     
@@ -79,6 +80,7 @@ public class UI extends PApplet
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
        // hline = new HorizontalLines(250, 40, 900, this);
        circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
+       box = new SquareBox(800, 90, 78, 66, this);
 
 
 
@@ -200,6 +202,12 @@ public class UI extends PApplet
             vlines.add(vline);
         }
 
+        for (int i=0; i < 5; i++) // lines 
+        {
+            VerticlesLines vline1 = new VerticlesLines(670+(i*60), 350, 20, this);
+            vline.add(vline1); 
+        }
+
 
 
 
@@ -226,6 +234,7 @@ public class UI extends PApplet
         rec3.render();
         rec4.render();
         circles.render();
+        box.render();
         //hline.render();
      //   button.render();
         horizonline.render();

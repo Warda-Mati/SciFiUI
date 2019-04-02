@@ -22,20 +22,20 @@ public Circle (float x, float y ,float radius, float diameter, PApplet ui)
     float rotation;
     public void render()
     {
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 5; i++) // circles 
         {
             ui.noFill();
             ui.stroke(0,200,200);
-            ui.ellipse(x,y, i*(20),i*(20));
+            ui.ellipse(x,y, i*(25),i*(25)); // makes static circles small / big
         }
         ui.pushMatrix();
         ui.translate(x,y);
         ui.rotate(rotation);
-        int outline = 50;
-        for(int i =0; i< 10; i++)
+        int outline = 75;   //  semi arc 's position
+        for(int i =0; i< 10; i++) //  thickness of arc 
         {
-            ui.arc(0,0,outline,outline,0,ui.PI);
-            outline += 1.8f ;
+            ui.arc(0,0,outline,outline,0,ui.PI); // size of semi arc | starting point  
+            outline += 1.8f ; // size
         }
        ui.popMatrix();
         rotation -= 0.02f;
@@ -46,7 +46,7 @@ public Circle (float x, float y ,float radius, float diameter, PApplet ui)
         for(int i = 0; i < 20; i++)
         {
             ui.stroke(200,200,0);
-            ui.arc(0,0,outline,outline,1.6f,ui.PI);
+            ui.arc(0,0,outline,outline,1.60f,ui.PI);
               outline ++;
         }
         ui.popMatrix();
