@@ -279,7 +279,7 @@ public class UI extends PApplet
         }
 
 
-        for(SquareButtons sbt: sbutton) // 650+(i*73), 220, 50, this
+        for(SquareButtons sbt: sbutton) 
         {
 
             for(int i = 0; i < 4; i++)
