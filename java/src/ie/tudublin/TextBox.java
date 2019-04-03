@@ -24,8 +24,8 @@ public class TextBox extends UIElement
         ui.fill(255,100,50);
         ui.stroke(255,100,50);
         ui.rect(x, y, size, length);
-        ui.fill(255);
-        ui.textSize(20);
+        ui.fill(244, 67, 89);
+        ui.textSize(15);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text(text,x+(size/2),y+(length/2));
     }

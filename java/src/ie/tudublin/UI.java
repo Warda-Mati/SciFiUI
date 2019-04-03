@@ -20,9 +20,7 @@ public class UI extends PApplet
     MovingCircle mc;
    // Radar r;
     RadarBorder border;
-   // SquareButtons button; // squares at the bottom 
     HorizontalLines horizonline; // line at the bottom 
-   // Rectangles rec; // small  narrow long rectangles  above squares  
     Rectangles rec; //  above rect 2
     Rectangles rec1; // first on the left corner with the text arrange 
     Rectangles rec2; // above rect 1 which is with text 
@@ -31,6 +29,9 @@ public class UI extends PApplet
     Circle circles;
     SquareBox box; 
     TextBox text;
+    TextBox text2;
+    TextBox text3;
+
     //HorizontalLines hline;
 
     
@@ -80,6 +81,8 @@ public class UI extends PApplet
        circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
        box = new SquareBox(500,300 ,600, 400, this);
       text = new TextBox(50, 690, 50, 100, "Arrage", this); // box with text
+      text2 = new TextBox(650, 285, 40, 130, "Track Write", this);
+      text3 = new TextBox(700, 285, 40, 130, "Data", this);
 
 
 
@@ -238,6 +241,8 @@ public class UI extends PApplet
      //   button.render();
         horizonline.render();
        text.render();
+       text2.render();
+       text3.render();
 
       
         for(RadarBorder bb: borders) // radar border with circles inside 
