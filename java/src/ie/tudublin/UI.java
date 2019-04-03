@@ -83,6 +83,7 @@ public class UI extends PApplet
       text = new TextBox(50, 690, 50, 100, "Arrage", this); // box with text
       text2 = new TextBox(650, 285, 40, 130, "Track Write", this);
       text3 = new TextBox(700, 285, 40, 130, "Data", this);
+    
 
 
 
@@ -242,7 +243,7 @@ public class UI extends PApplet
         horizonline.render();
        text.render();
        text2.render();
-       text3.render();
+       
 
       
         for(RadarBorder bb: borders) // radar border with circles inside 
