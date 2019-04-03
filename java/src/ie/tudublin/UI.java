@@ -16,9 +16,6 @@ public class UI extends PApplet
 
 
 
-
-
-
     Button b;
     MovingCircle mc;
    // Radar r;
@@ -33,6 +30,7 @@ public class UI extends PApplet
     Rectangles rec4; // above rect above rec
     Circle circles;
     SquareBox box; 
+    TextBox text;
     //HorizontalLines hline;
 
     
@@ -72,7 +70,7 @@ public class UI extends PApplet
         border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
        // rec = new Rectangles(700, 500, 400, 10,this, 125,89,0); // x , y, width, height , colour 
         rec = new Rectangles(50, 400, 100, 250, this,235,90,78);
-        rec1= new Rectangles(50, 690, 100, 50, this, 234,5,6);  // with text 
+       // rec1= new Rectangles(50, 690, 100, 50, this, 234,5,6);  // with text 
         rec2 = new Rectangles(50, 290, 100, 100, this, 245, 0, 78); 
         rec3 = new Rectangles(250, 120, 250, 250, this, 0, 102,103);
         rec4 = new Rectangles(50, 140, 100, 130, this, 0, 103, 102);
@@ -80,7 +78,8 @@ public class UI extends PApplet
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
        // hline = new HorizontalLines(250, 40, 900, this);
        circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
-       box = new SquareBox(800, 90, 78, 66, this);
+       box = new SquareBox(500,300 ,600, 400, this);
+      text = new TextBox(50, 690, 50, 100, "Arrage", this);
 
 
 
@@ -204,7 +203,7 @@ public class UI extends PApplet
 
         for (int i=0; i < 5; i++) // lines  above radar borer 
         {
-            VerticlesLines vline1 = new VerticlesLines(670+(i*60), 350, 20, this);
+            VerticlesLines vline1 = new VerticlesLines(650+(i*60), 350, 20, this);
             vline.add(vline1); 
         }
 
@@ -229,7 +228,7 @@ public class UI extends PApplet
         // border.render();
        // rec.render();
         rec.render();
-        rec1.render();
+       // rec1.render();
         rec2.render();
         rec3.render();
         rec4.render();
@@ -238,6 +237,7 @@ public class UI extends PApplet
         //hline.render();
      //   button.render();
         horizonline.render();
+       text.render();
 
       
         for(RadarBorder bb: borders) // radar border with circles inside 
