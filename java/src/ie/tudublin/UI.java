@@ -24,8 +24,8 @@ public class UI extends PApplet
     RadarBorder border;
     HorizontalLines horizonline; // line at the bottom 
     Rectangles rec; //  above rect 2
-    Rectangles rec1; // first on the left corner with the text arrange 
-    Rectangles rec2; // above rect 1 which is with text 
+    Rectangles rec1; // left corner box with  text Arrange 
+    Rectangles rec2; // above rec1 with text  Arrange
     Rectangles rec3; // big square box where circle is gonn a be 
     Rectangles rec4; // above rect above rec
     Circle circles;
@@ -58,7 +58,6 @@ public class UI extends PApplet
 
 
 
-
     public void setup() {
 
         colorMode(HSB);
@@ -75,8 +74,8 @@ public class UI extends PApplet
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
        // hline = new HorizontalLines(250, 40, 900, this);
        circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
-       box = new SquareBox(500,300 ,600, 400, this);
-      text = new TextBox(50, 690, 50, 100, "Arrage", this); // box with text
+       box = new SquareBox(530,200 ,40, 40, this);
+      text = new TextBox(50, 690, 50, 100, "Arrage", this); // box with text 555, 215, 50, 50);
       text2 = new TextBox(650, 310, 30, 130, "Track Write", this);
       text3 = new TextBox(790, 310, 30, 130, "Data", this);
       text4 = new TextBox(790, 200, 30, 130,"£ TX..", this);
@@ -228,12 +227,6 @@ public class UI extends PApplet
 
 
 
-
-
-
-
-
-
     }
 
     public void draw()
@@ -353,4 +346,3 @@ public class UI extends PApplet
         }
     }
 }
-
