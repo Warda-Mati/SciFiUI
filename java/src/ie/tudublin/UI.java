@@ -18,7 +18,7 @@ public class UI extends PApplet
 
     Button b;
     MovingCircle mc;
-   // Radar r;
+   //HorizontalLines hline;
     RadarBorder border;
     HorizontalLines horizonline; // line at the bottom 
     Rectangles rec; //  above rect 2
@@ -31,29 +31,23 @@ public class UI extends PApplet
     TextBox text;
     TextBox text2;
     TextBox text3;
+   
 
-    //HorizontalLines hline;
-
-    
 
     boolean[] keys = new boolean[1024];
-    public void keyPressed()
-    {
+    public void keyPressed() {
         keys[keyCode] = true;
     }
     
-    public void keyReleased()
-    {
+    public void keyReleased() {
         keys[keyCode] = true;
     }
 
-    public boolean checkKey(int c)
-    {
+    public boolean checkKey(int c) {
         return keys[c] || keys [Character.toUpperCase(c)];
     }
     
-    public void settings()
-    {
+    public void settings(){
         fullScreen();  // Use fullscreen instead of size to make your interface fullscreen
     }
 
@@ -62,12 +56,11 @@ public class UI extends PApplet
 
 
 
-    public void setup()
-    {
+    public void setup() {
+
         colorMode(HSB);
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
-      //  r = new Radar(900, 700, 50, this);
         border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
        // rec = new Rectangles(700, 500, 400, 10,this, 125,89,0); // x , y, width, height , colour 
         rec = new Rectangles(50, 400, 100, 250, this,235,90,78);
@@ -82,7 +75,7 @@ public class UI extends PApplet
        box = new SquareBox(500,300 ,600, 400, this);
       text = new TextBox(50, 690, 50, 100, "Arrage", this); // box with text
       text2 = new TextBox(650, 285, 40, 130, "Track Write", this);
-      text3 = new TextBox(700, 285, 40, 130, "Data", this);
+      text3 = new TextBox(790, 285, 40, 130, "Data", this);
     
 
 
@@ -103,6 +96,15 @@ public class UI extends PApplet
             SquareButtons but = new SquareButtons(250+(i*60), 620, 50, this);  
             buttons.add(but);
         }
+
+
+        for (int i=0; i < 4; i++) // Square buttons 
+        {
+            fill(255);
+            SquareButtons but = new SquareButtons(650+(i*73), 220, 50, this);  
+            buttons.add(but);
+        }
+
 
 
         for (int i=0; i < 6; i++) //  rects at the bottom 
@@ -228,7 +230,6 @@ public class UI extends PApplet
         // b.render();
         // mc.update();
         // mc.render();
-      //  r.render();
         // border.render();
        // rec.render();
         rec.render();
@@ -243,6 +244,7 @@ public class UI extends PApplet
         horizonline.render();
        text.render();
        text2.render();
+       text3.render();
        
 
       
