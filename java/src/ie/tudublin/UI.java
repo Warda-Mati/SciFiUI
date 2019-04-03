@@ -75,8 +75,8 @@ public class UI extends PApplet
        circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
        box = new SquareBox(500,300 ,600, 400, this);
       text = new TextBox(50, 690, 50, 100, "Arrage", this); // box with text
-      text2 = new TextBox(650, 285, 40, 130, "Track Write", this);
-      text3 = new TextBox(790, 285, 40, 130, "Data", this);
+      text2 = new TextBox(650, 310, 30, 130, "Track Write", this);
+      text3 = new TextBox(790, 310, 30, 130, "Data", this);
     
 
 
