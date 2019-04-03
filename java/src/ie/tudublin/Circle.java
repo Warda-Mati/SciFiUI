@@ -4,21 +4,15 @@ import processing.core.PApplet;
 
 public class Circle extends UIElement
 {
-
     private float diameter;
-
-
 
 public Circle (float x, float y ,float radius, float diameter, PApplet ui)
    {
-       super(x, y, ui);
-
-   
+    super(x, y, ui);
    this.diameter = diameter;
    radius = diameter/2;
    }
 
- 
     float rotation;
     public void render()
     {
@@ -35,7 +29,7 @@ public Circle (float x, float y ,float radius, float diameter, PApplet ui)
         for(int i =0; i< 10; i++) //  thickness of arc 
         {
             ui.arc(0,0,outline,outline,0,ui.PI); // size of semi arc | starting point  
-            outline += 1.8f ; // size
+            outline += 10 ; // size
         }
        ui.popMatrix();
         rotation -= 0.02f; // rotation speed
@@ -47,11 +41,14 @@ public Circle (float x, float y ,float radius, float diameter, PApplet ui)
         {
             ui.stroke(200,200,0);
             ui.arc(0,0,outline,outline,1.60f,ui.PI);
-              outline ++;
+              outline += 1;
         }
         ui.popMatrix();
-          rotation += 0.05f;
-
+          rotation += 0.95f;
     }
- 
 }
+
+// noStroke();
+// lights();
+// translate(58, 48, 0);
+// sphere(28);
