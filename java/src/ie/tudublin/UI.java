@@ -112,7 +112,7 @@ public class UI extends PApplet
         for (int i=0; i < 2; i++) // Square buttons 
         {
             fill(255);
-            SquareButtons sbut2 = new SquareButtons(790+(i*73), 180, 50, this);  
+            SquareButtons sbut2 = new SquareButtons(790+(i*73), 140, 50, this);  
             sbutton2.add(sbut2);
         }
 
@@ -294,7 +294,7 @@ public class UI extends PApplet
         for(SquareButtons sbt2: sbutton2) // 650+(i*73), 220, 50, this
         {
 
-            for(int i = 0; i < 4; i++)
+            for(int i = 0; i < 2; i++)
             {
                 int num = i + 1;
                 textSize(10);
