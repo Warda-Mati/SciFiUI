@@ -79,7 +79,7 @@ public class UI extends PApplet
        // hline = new HorizontalLines(250, 40, 900, this);
        circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
        box = new SquareBox(500,300 ,600, 400, this);
-      text = new TextBox(50, 690, 50, 100, "Arrage", this);
+      text = new TextBox(50, 690, 50, 100, "Arrage", this); // box with text
 
 
 
