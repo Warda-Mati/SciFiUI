@@ -5,6 +5,7 @@ public class UI extends PApplet
 {
     ArrayList<RadarBorder> borders = new ArrayList<RadarBorder>(); // radar boerder with circle inside 
     ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>(); // square button at the bottom 
+    ArrayList<SquareButtons> sbutton = new ArrayList<SquareButtons>();
     ArrayList<Rectangles> brects = new ArrayList<Rectangles>(); // rects above line at the bottom  below square button 
     ArrayList<HorizontalLines> lines = new ArrayList<HorizontalLines>(); // small line onn the LHS 
     ArrayList<VerticlesLines> vline = new ArrayList<VerticlesLines>(); // verticle lines at the bottom below square buttons 
@@ -101,8 +102,8 @@ public class UI extends PApplet
         for (int i=0; i < 4; i++) // Square buttons 
         {
             fill(255);
-            SquareButtons but = new SquareButtons(650+(i*73), 220, 50, this);  
-            buttons.add(but);
+            SquareButtons sbut = new SquareButtons(650+(i*73), 220, 50, this);  
+            sbutton.add(sbut);
         }
 
 
@@ -260,9 +261,22 @@ public class UI extends PApplet
             {
                 int num = i + 1;
                 textSize(10);
-                text(num,250+(i*60) + 25,610); // x, 
+                text(num,250+(i*60) + 25,610); // x,  (250+(i*60), 620, 50, this); 
             }
             bt.render();
+        }
+
+
+        for(SquareButtons sbt: sbutton) // 650+(i*73), 220, 50, this
+        {
+
+            for(int i = 0; i < 4; i++)
+            {
+                int num = i + 1;
+                textSize(10);
+                text(num,650+(i*73) + 25,210); // x, 
+            }
+            sbt.render();
         }
 
         for(Rectangles rec: brects) // 
