@@ -274,7 +274,7 @@ public class UI extends PApplet
             {
                 int num = i + 1;
                 textSize(10);
-                text(num,650+(i*73) + 25,210); // x, 
+                text(num,650+(i*73) + 25,240); // x, 
             }
             sbt.render();
         }
