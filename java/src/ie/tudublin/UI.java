@@ -6,6 +6,7 @@ public class UI extends PApplet
     ArrayList<RadarBorder> borders = new ArrayList<RadarBorder>(); // radar boerder with circle inside 
     ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>(); // square button at the bottom 
     ArrayList<SquareButtons> sbutton = new ArrayList<SquareButtons>();
+    ArrayList<SquareButtons> sbutton2 = new ArrayList<SquareButtons>();
     ArrayList<Rectangles> brects = new ArrayList<Rectangles>(); // rects above line at the bottom  below square button 
     ArrayList<HorizontalLines> lines = new ArrayList<HorizontalLines>(); // small line onn the LHS 
     ArrayList<VerticlesLines> vline = new ArrayList<VerticlesLines>(); // verticle lines at the bottom below square buttons 
@@ -32,6 +33,7 @@ public class UI extends PApplet
     TextBox text;
     TextBox text2;
     TextBox text3;
+    TextBox text4;
    
 
 
@@ -77,6 +79,7 @@ public class UI extends PApplet
       text = new TextBox(50, 690, 50, 100, "Arrage", this); // box with text
       text2 = new TextBox(650, 310, 30, 130, "Track Write", this);
       text3 = new TextBox(790, 310, 30, 130, "Data", this);
+      text4 = new TextBox(790, 200, 30, 130,"£ TX..", this);
     
 
 
@@ -105,6 +108,14 @@ public class UI extends PApplet
             SquareButtons sbut = new SquareButtons(650+(i*73), 250, 50, this);  
             sbutton.add(sbut);
         }
+
+        for (int i=0; i < 2; i++) // Square buttons 
+        {
+            fill(255);
+            SquareButtons sbut2 = new SquareButtons(790+(i*73), 180, 50, this);  
+            sbutton2.add(sbut2);
+        }
+
 
 
 
@@ -246,6 +257,7 @@ public class UI extends PApplet
        text.render();
        text2.render();
        text3.render();
+       text4.render();
        
 
       
@@ -277,6 +289,18 @@ public class UI extends PApplet
                 text(num,650+(i*73) + 25,240); // x, 
             }
             sbt.render();
+        }
+
+        for(SquareButtons sbt2: sbutton2) // 650+(i*73), 220, 50, this
+        {
+
+            for(int i = 0; i < 4; i++)
+            {
+                int num = i + 1;
+                textSize(10);
+                text(num,790+(i*73) + 25,200); // x, 
+            }
+            sbt2.render();
         }
 
         for(Rectangles rec: brects) // 

@@ -38,10 +38,10 @@ public Circle (float x, float y ,float radius, float diameter, PApplet ui)
             outline += 1.8f ; // size
         }
        ui.popMatrix();
-        rotation -= 0.02f;
+        rotation -= 0.02f; // rotation speed
         ui.pushMatrix();
         ui.translate(ui.width/2,ui.height/2);
-        ui.rotate(rotation - 0.05f);
+        ui.rotate(rotation - 0.05f); // speed 
          outline = 100;
         for(int i = 0; i < 20; i++)
         {
