@@ -298,7 +298,7 @@ public class UI extends PApplet
             {
                 int num = i + 1;
                 textSize(10);
-                text(num,790+(i*73) + 25,200); // x, 
+                text(num,790+(i*73) + 25,130); // x, 
             }
             sbt2.render();
         }
