@@ -32,7 +32,7 @@ public class SquareButtons extends UIElement{
         ui.noFill();
         ui.stroke(0,153,204);
         ui.rect(x, y, length, length);
-        ui.fill(0,153,204);
+        ui.fill(ui.random(0,255),ui.random(0,255),ui.random(0,255));
         ui.rect(x+length/4,y+length/4,length/2,length/2);
         ui.fill(255);
         ui.textSize(10);
