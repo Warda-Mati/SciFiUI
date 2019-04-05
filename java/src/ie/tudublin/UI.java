@@ -8,7 +8,7 @@ import processing.core.PApplet;
 public class UI extends PApplet
 {
     Minim  minim;
-    AudioPlayer[] songs = new AudioPlayer[2];
+    AudioPlayer[] songs = new AudioPlayer[16];
     // ArrayList<RadarBorder> borders = new ArrayList<RadarBorder>(); // radar boerder with circle inside 
        ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>(); // square button at the bottom 
     // ArrayList<SquareButtons> sbutton = new ArrayList<SquareButtons>(); // 4 buttons at the top
@@ -85,6 +85,10 @@ public class UI extends PApplet
        text4 = new TextBox(790, 200, 30, 130,"£ TX..", this);
        minim = new Minim(this);
        songs[1] = minim.loadFile("musicrap1.mp3");
+       songs[2] = minim.loadFile("kala.mp3");
+       songs[3] = minim.loadFile("Swag.mp3");
+       songs[4] = minim.loadFile("Chamma.mp3");
+       
     
 
 
