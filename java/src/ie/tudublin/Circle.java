@@ -28,12 +28,13 @@ public Circle (float x, float y ,float radius, float diameter, PApplet ui)
         int outline = 75;   //  semi arc 's position
         for(int i =0; i< 10; i++) //  thickness of arc 
         {
+            ui.stroke(0 + (i*30),0 + (i*10),0 + (i*25));
             ui.arc(0,0,outline,outline,0,ui.PI); // size of semi arc | starting point  
             outline += 10 ; // size
         }
        ui.popMatrix();
-        rotation -= 0.02f; // rotation speed
-        ui.pushMatrix();
+        rotation -= 0.8f; // rotation speed
+        /*ui.pushMatrix();
         ui.translate(ui.width/2,ui.height/2);
         ui.rotate(rotation - 0.05f); // speed 
          outline = 100;
@@ -44,7 +45,7 @@ public Circle (float x, float y ,float radius, float diameter, PApplet ui)
               outline += 1;
         }
         ui.popMatrix();
-          rotation += 0.95f;
+          rotation += 0.95f;*/
     }
 }
 

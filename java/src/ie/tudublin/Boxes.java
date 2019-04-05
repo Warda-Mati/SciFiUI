@@ -1,8 +1,7 @@
 package ie.tudublin;
-
 import processing.core.PApplet;
 
-public class Rectangles extends UIElement{
+public class Boxes extends UIElement{
    
     private int size;
     private int length; 
@@ -12,7 +11,7 @@ public class Rectangles extends UIElement{
     float blue;
    
 
-    public Rectangles(int x, int y, int size, int length, PApplet ui,float red,float green,float blue)
+    public Boxes(int x, int y, int size, int length, PApplet ui,float red,float green,float blue)
     {
         super(x, y, ui);
         this. size = size; 
@@ -40,14 +39,6 @@ public class Rectangles extends UIElement{
         ui.fill(red, green, blue);
         ui.stroke(200,0,150);
         ui.rect(x, y, size, length);
-        ui.fill(ui.random(0,255),ui.random(0,255),ui.random(0,255));
-        for(int i =0; i < 4; i++)
-        {
-            ui.noStroke();
-            ui.ellipse(ui.random(x , x + size), y + length/2 , length, length);
-        }
+        
     } 
-
-
 }
-
