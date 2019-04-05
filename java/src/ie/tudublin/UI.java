@@ -2,26 +2,28 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
+import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import processing.core.PApplet;
 public class UI extends PApplet
 {
     Minim  minim;
-    /*ArrayList<RadarBorder> borders = new ArrayList<RadarBorder>(); // radar boerder with circle inside 
-    ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>(); // square button at the bottom 
-    ArrayList<SquareButtons> sbutton = new ArrayList<SquareButtons>(); // 4 buttons at the top
-    ArrayList<SquareButtons> sbutton2 = new ArrayList<SquareButtons>(); // 2 buttons at the top
-    ArrayList<SquareButtons> sbutton3 = new ArrayList<SquareButtons>(); // buttons in box on the left side 
-    ArrayList<Rectangles> brects = new ArrayList<Rectangles>(); // rects above line at the bottom  below square button 
-    ArrayList<HorizontalLines> lines = new ArrayList<HorizontalLines>(); // small line onn the LHS 
-    ArrayList<VerticlesLines> vline = new ArrayList<VerticlesLines>(); // verticle lines at the bottom below square buttons 
-    ArrayList<Rectangles> srects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | horizontally drawn
-    ArrayList<Rectangles> vrects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | vertically drawn
-    ArrayList<HorizontalLines> hline = new ArrayList<HorizontalLines>(); 
-    ArrayList<HorizontalLines> hline1 = new ArrayList<HorizontalLines>();//  inside box 
-    ArrayList<HorizontalThinLine> tlines = new ArrayList<HorizontalThinLine>(); // thin lines added between verticle line 
-    ArrayList<HorizontalThinLine> tlines1 = new ArrayList<HorizontalThinLine>();
-    ArrayList<VThinLines> vlines = new ArrayList<VThinLines>();*/
+    AudioPlayer[] songs = new AudioPlayer[2];
+    // ArrayList<RadarBorder> borders = new ArrayList<RadarBorder>(); // radar boerder with circle inside 
+       ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>(); // square button at the bottom 
+    // ArrayList<SquareButtons> sbutton = new ArrayList<SquareButtons>(); // 4 buttons at the top
+    // ArrayList<SquareButtons> sbutton2 = new ArrayList<SquareButtons>(); // 2 buttons at the top
+    // ArrayList<SquareButtons> sbutton3 = new ArrayList<SquareButtons>(); // buttons in box on the left side 
+    // ArrayList<Rectangles> brects = new ArrayList<Rectangles>(); // rects above line at the bottom  below square button 
+    // ArrayList<HorizontalLines> lines = new ArrayList<HorizontalLines>(); // small line onn the LHS 
+    // ArrayList<VerticlesLines> vline = new ArrayList<VerticlesLines>(); // verticle lines at the bottom below square buttons 
+    // ArrayList<Rectangles> srects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | horizontally drawn
+    // ArrayList<Rectangles> vrects = new ArrayList<Rectangles>(); // small  narrow long rectangles  above squares  | vertically drawn
+    // ArrayList<HorizontalLines> hline = new ArrayList<HorizontalLines>(); 
+    // ArrayList<HorizontalLines> hline1 = new ArrayList<HorizontalLines>();//  inside box 
+    // ArrayList<HorizontalThinLine> tlines = new ArrayList<HorizontalThinLine>(); // thin lines added between verticle line 
+    // ArrayList<HorizontalThinLine> tlines1 = new ArrayList<HorizontalThinLine>();
+    // ArrayList<VThinLines> vlines = new ArrayList<VThinLines>();
 
     ArrayList<UIElement> elements = new ArrayList<UIElement>();
 
@@ -82,6 +84,7 @@ public class UI extends PApplet
        text3 = new TextBox(790, 310, 30, 130, "Data", this);
        text4 = new TextBox(790, 200, 30, 130,"£ TX..", this);
        minim = new Minim(this);
+       songs[1] = minim.loadFile("musicrap1.mp3");
     
 
 
@@ -101,10 +104,10 @@ public class UI extends PApplet
         for (int i=0; i < 16; i++) // Square buttons 
         {
             fill(255);
-            //SquareButtons but = new SquareButtons(250+(i*60), 620, 50, this); 
-            UIElement but = new SquareButtons(250+(i*60), 620, 50, this);   
-            //buttons.add(but);
-            elements.add(but);
+            SquareButtons but = new SquareButtons(250+(i*60), 620, 50, i+1, this); 
+            //UIElement but = new SquareButtons(250+(i*60), 620, 50, this);   
+            buttons.add(but);
+           // elements.add(but);
         }
 
 
@@ -113,7 +116,7 @@ public class UI extends PApplet
             fill(255);
             //SquareButtons sbut = new SquareButtons(650+(i*73), 250, 50, this);  
             //sbutton.add(sbut);
-            UIElement sbut = new SquareButtons(650+(i*73), 250, 50, this);  
+            UIElement sbut = new SquareButtons(650+(i*73), 250, 50, 0, this);  
             elements.add(sbut);
         }
 
@@ -122,7 +125,7 @@ public class UI extends PApplet
             fill(255);
             // SquareButtons sbut2 = new SquareButtons(790+(i*73), 140, 50, this);  
             // sbutton2.add(sbut2);
-            UIElement sbut2 = new SquareButtons(790+(i*73), 140, 50, this);  
+            UIElement sbut2 = new SquareButtons(790+(i*73), 140, 50, 0, this);  
             elements.add(sbut2);
         }
 
@@ -132,7 +135,7 @@ public class UI extends PApplet
             fill(255);
             // SquareButtons sbut3 = new SquareButtons(59+(i*80), 440, 50, this);  
             //  sbutton3.add(sbut3);
-            UIElement sbut3 = new SquareButtons(59+(i*80), 440, 50, this);  
+            UIElement sbut3 = new SquareButtons(59+(i*80), 440, 50,0, this);  
             elements.add(sbut3);
            
         }
@@ -142,7 +145,7 @@ public class UI extends PApplet
             fill(255);
             // SquareButtons sbut2 = new SquareButtons(59+(i*80), 600, 50, this);  
             // sbutton2.add(sbut2);
-            UIElement sbut2 = new SquareButtons(59+(i*80), 600, 50, this);  
+            UIElement sbut2 = new SquareButtons(59+(i*80), 600, 50,0, this);  
             elements.add(sbut2);
         }
 
@@ -333,6 +336,22 @@ public class UI extends PApplet
 
 
     }
+    int click = -1;
+    public void mousePressed()
+    {
+        for(int i =0; i < 16; i++)
+        {
+            float x = buttons.get(i).x + (buttons.get(i).getLength()/4);
+            float y = buttons.get(i).y + (buttons.get(i).getLength()/4);
+            float size = buttons.get(i).getLength()/2;
+            if(mouseX > x && mouseX < buttons.get(i).x + size && mouseY > y && mouseY < buttons.get(i).y + size)
+            {
+                songs[buttons.get(i).getNum()].play();
+                songs[buttons.get(i).getNum()].loop();
+                click = buttons.get(i).getNum();
+            }
+        }
+    }
 
     public void draw()
     {
@@ -361,24 +380,22 @@ public class UI extends PApplet
        {
            element.render();
        }
+
+       
+       for(SquareButtons bt: buttons) // 
+       {
+           fill(255);
+            textSize(20);
+            
+           text(click,40,40);
+            bt.render();
+       }
        
 
       /*
         for(RadarBorder bb: borders) // radar border with circles inside 
         {
             bb.render();
-        }
-
-        for(SquareButtons bt: buttons) // 
-        {
-
-            for(int i = 0; i < 16; i++)
-            {
-                int num = i + 1;
-                textSize(10);
-                text(num,250+(i*60) + 25,610); // x,  (250+(i*60), 620, 50, this); 
-            }
-            bt.render();
         }
 
 
