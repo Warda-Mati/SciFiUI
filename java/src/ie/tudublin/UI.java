@@ -1,7 +1,5 @@
 package ie.tudublin;
-
 import java.util.ArrayList;
-
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import processing.core.PApplet;
@@ -24,24 +22,23 @@ public class UI extends PApplet
     // ArrayList<HorizontalThinLine> tlines = new ArrayList<HorizontalThinLine>(); // thin lines added between verticle line 
     // ArrayList<HorizontalThinLine> tlines1 = new ArrayList<HorizontalThinLine>();
     // ArrayList<VThinLines> vlines = new ArrayList<VThinLines>();
-
     ArrayList<UIElement> elements = new ArrayList<UIElement>();
-
 
     Button b;
     MovingCircle mc;
     RadarBorder border;
-    HorizontalLines horizonline; // line at the bottom 
-    Boxes rec1; //   1  above rect 2
-    Boxes rec2; //  2    above rec1 with text  Arrange
-    Boxes rec3; //     big square box where circle is gonn a be 
-    Boxes rec4; //  3 above rect rect 2
+    HorizontalLines horizonline;//line at the bottom 
+    Boxes rec1;//1 
+    Boxes rec2;//2   
+    Boxes rec3;//big square box where circle is 
+    Boxes rec4;//3 above rect rect 2
     Circle circles;
     SquareBox box; 
     TextBox text;
     TextBox text2;
     TextBox text3;
     TextBox text4;
+    SlideBar bar;
    
 
 
@@ -68,36 +65,35 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
-       // rec = new Rectangles(700, 500, 400, 10,this, 125,89,0); // x , y, width, height , colour 
-        rec1 = new Boxes(50, 420, 150, 250, this,235,90,78);  // x , y, width, height , colour 
-       // rec1= new Rectangles(50, 690, 100, 50, this, 234,5,6);  // with text 
+        rec1 = new Boxes(50, 420, 150, 250, this,235,90,78);  // x,y,width,height,colour 
         rec2 = new Boxes(50, 250, 150, 150, this, 245, 0, 78); 
         rec3 = new Boxes(250, 120, 250, 250, this, 0, 102,103);
         rec4 = new Boxes(50, 120, 150, 120, this, 0, 103, 102);
-      //  button = new SquareButtons(400,500,50,this); 
+        // button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
-       // hline = new HorizontalLines(250, 40, 900, this);
+        // hline = new HorizontalLines(250, 40, 900, this);
        circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
        box = new SquareBox(520,290 ,40, 40, this);
-       text = new TextBox(50, 690, 50, 150, "Arrage", this); // box with text 555, 215, 50, 50);
+       text = new TextBox(50, 690, 50, 150, "Arrage", this); 
        text2 = new TextBox(650, 310, 30, 130, "Track Write", this);
        text3 = new TextBox(790, 310, 30, 130, "Data", this);
        text4 = new TextBox(790, 200, 30, 130,"£ TX..", this);
+       bar = new SlideBar(650, 100, this, 100, 30);
        minim = new Minim(this);
        songs[1] = minim.loadFile("musicrap1.mp3");
        songs[2] = minim.loadFile("kala.mp3");
        songs[3] = minim.loadFile("Swag.mp3");
        songs[4] = minim.loadFile("Chamma.mp3");
+       songs[5] = minim.loadFile("Dilbar.mp3");
+       songs[6] = minim.loadFile("Mujhse.mp3");
+
        
     
 
 
-
-
-
         for (int i=0; i < 9; i++) // radar border 
         {
-            //RadarBorder bb = new RadarBorder(250+(i* 105) , height/2 +20, 80, 10, this , "Balance"); // x (distance), y, move up/down, size 
+            //RadarBorder bb = new RadarBorder(250+(i* 105),height/2 +20, 80, 10, this , "Balance");
             //borders.add(bb);
             UIElement bb = new RadarBorder(250+(i* 105) , height/2 +20, 80, 10, this , "Balance"); // x (distance), y, move up/down, size 
             elements.add(bb);
@@ -350,6 +346,10 @@ public class UI extends PApplet
             float size = buttons.get(i).getLength()/2;
             if(mouseX > x && mouseX < buttons.get(i).x + size && mouseY > y && mouseY < buttons.get(i).y + size)
             {
+                if(click != -1)
+                {
+                    songs[click].pause();
+                }
                 songs[buttons.get(i).getNum()].play();
                 songs[buttons.get(i).getNum()].loop();
                 click = buttons.get(i).getNum();
@@ -379,6 +379,7 @@ public class UI extends PApplet
        text2.render();
        text3.render();
        text4.render();
+       bar.render();
 
        for(UIElement element: elements)
        {
@@ -386,7 +387,7 @@ public class UI extends PApplet
        }
 
        
-       for(SquareButtons bt: buttons) // 
+       for(SquareButtons bt: buttons)
        {
            fill(255);
             textSize(20);
@@ -401,7 +402,6 @@ public class UI extends PApplet
         {
             bb.render();
         }
-
 
         for(SquareButtons sbt: sbutton) 
         {
@@ -491,7 +491,6 @@ public class UI extends PApplet
             vline.render();
         }*/
         
-
         if (checkKey(LEFT))
         {
             System.out.println("Left arrow key pressed");
