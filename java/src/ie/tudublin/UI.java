@@ -432,7 +432,7 @@ public class UI extends PApplet
            if(s.isSliding() == true && mouseY > s.getLiney()& mouseY < s.getLiney()+ s.getDistance())
             {
                 s.y = mouseY;
-                float newVolume = map(s.y,s.getLiney(),s.getLiney() + s.getDistance(),-10,10);
+                float newVolume = map(s.y,s.getLiney(),s.getLiney() + s.getDistance(),-20,20);
                 songs[click].setGain(newVolume);
                 text(songs[click].getGain(),100,100);
                 text(newVolume,150,100);
