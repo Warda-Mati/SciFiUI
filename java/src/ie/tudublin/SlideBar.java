@@ -16,12 +16,42 @@ public class SlideBar extends UIElement
 
     public void render()
     {
+        float linex = x;
+        float liney = y;
         ui.fill(255,255,0);
-        ui.line(x + length/2,y, x + length/2, y + distance);
+        ui.line(linex + length/2,liney, x + length/2, liney + distance);
         ui.fill(0,255,255);
         ui.rect(x,y,length,length/2);
         ui.fill(0,255,0);
         ui.line(x,y + length/4, x + length, y + length/4);
 
+    }
+
+    /**
+     * @return the distance
+     */
+    public float getDistance() {
+        return distance;
+    }
+
+    /**
+     * @param distance the distance to set
+     */
+    public void setDistance(float distance) {
+        this.distance = distance;
+    }
+
+    /**
+     * @return the length
+     */
+    public float getLength() {
+        return length;
+    }
+
+    /**
+     * @param length the length to set
+     */
+    public void setLength(float length) {
+        this.length = length;
     }
 }

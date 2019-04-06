@@ -110,7 +110,6 @@ public class UI extends PApplet
            // elements.add(but);
         }
 
-
         for (int i=0; i < 4; i++) // Square buttons 
         {
             fill(255);
@@ -337,6 +336,7 @@ public class UI extends PApplet
 
     }
     int click = -1;
+    boolean slide = false;
     public void mousePressed()
     {
         for(int i =0; i < 16; i++)
@@ -354,6 +354,10 @@ public class UI extends PApplet
                 songs[buttons.get(i).getNum()].loop();
                 click = buttons.get(i).getNum();
             }
+        }
+        if(mouseX > bar.x && mouseX < bar.x + bar.getLength() && mouseY > bar.y && mouseY < bar.y + bar.getLength()/2)
+        {
+            slide = true;
         }
     }
 
@@ -373,7 +377,7 @@ public class UI extends PApplet
         circles.render();
         box.render();
         //hline.render();
-     //   button.render();
+        //button.render();
         horizonline.render();
        text.render();
        text2.render();
@@ -394,6 +398,11 @@ public class UI extends PApplet
             
            text(click,40,40);
             bt.render();
+       }
+
+       if(slide = true && mouseY > bar.y && mouseY < bar.y + bar.getDistance())
+       {
+           bar.y = mouseY;
        }
        
 

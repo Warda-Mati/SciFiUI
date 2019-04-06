@@ -3,11 +3,11 @@ package ie.tudublin;
 // inheretence 
 import processing.core.PApplet;
 
-public class UIElement
+public abstract class UIElement
 {
-    float x;
-    float y;
-    PApplet ui;
+    protected float x;
+    protected float y;
+    protected PApplet ui;
 
 
 
@@ -19,8 +19,8 @@ public class UIElement
     }
 
 
-    public void render(){
+    public abstract void  render();
         
-    }
+    
 }
 
