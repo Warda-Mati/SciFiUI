@@ -335,7 +335,7 @@ public class UI extends PApplet
 
         for(int i =0; i < 2; i++)
         {
-            SlideBar sbar = new  SlideBar(520+(i*50), 120, this, 250, 50); //(520, 120, this, 250, 50);
+            SlideBar sbar = new  SlideBar(520+(i*60), 120, this, 250, 50); //(520, 120, this, 250, 50);
             bar.add(sbar); // name in array
         }
 
@@ -359,6 +359,7 @@ public class UI extends PApplet
                 }
                 songs[buttons.get(i).getNum()].play();
                 songs[buttons.get(i).getNum()].loop();
+                songs[buttons.get(i).getNum()].setGain(0);
                 click = buttons.get(i).getNum();
             }
         }
@@ -431,6 +432,10 @@ public class UI extends PApplet
            if(s.isSliding() == true && mouseY > s.getLiney()& mouseY < s.getLiney()+ s.getDistance())
             {
                 s.y = mouseY;
+                float newVolume = map(s.y,s.getLiney(),s.getLiney() + s.getDistance(),-10,10);
+                songs[click].setGain(newVolume);
+                text(songs[click].getGain(),100,100);
+                text(newVolume,150,100);
             }
        }
       /*
