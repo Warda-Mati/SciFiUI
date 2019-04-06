@@ -8,6 +8,7 @@ public class SlideBar extends UIElement
     private float length;
     private float linex;
     private float liney;
+    private boolean sliding;
     
     public SlideBar(float x, float y, PApplet ui, float distance, float length)
     {
@@ -16,13 +17,15 @@ public class SlideBar extends UIElement
         this.length = length;
         this.linex = x;
         this.liney = y;
+        this.sliding = false;
     }
 
     public void render()
     {
-        
+        ui.strokeWeight(4);
         ui.fill(255,255,0);
         ui.line(linex + length/2,liney, x + length/2, liney + distance);
+        ui.strokeWeight(1);
         ui.fill(0,255,255);
         ui.rect(x,y,length,length/2);
         ui.fill(0,255,0);
@@ -84,5 +87,19 @@ public class SlideBar extends UIElement
      */
     public void setLiney(float liney) {
         this.liney = liney;
+    }
+
+    /**
+     * @return the sliding
+     */
+    public boolean isSliding() {
+        return sliding;
+    }
+
+    /**
+     * @param sliding the sliding to set
+     */
+    public void setSliding(boolean sliding) {
+        this.sliding = sliding;
     }
 }

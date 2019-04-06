@@ -22,7 +22,9 @@ public class UI extends PApplet
     // ArrayList<HorizontalThinLine> tlines = new ArrayList<HorizontalThinLine>(); // thin lines added between verticle line 
     // ArrayList<HorizontalThinLine> tlines1 = new ArrayList<HorizontalThinLine>();
     // ArrayList<VThinLines> vlines = new ArrayList<VThinLines>();
+    ArrayList<SlideBar>  bar = new ArrayList<SlideBar>();
     ArrayList<UIElement> elements = new ArrayList<UIElement>();
+
 
     Button b;
     MovingCircle mc;
@@ -38,22 +40,22 @@ public class UI extends PApplet
     TextBox text2;
     TextBox text3;
     TextBox text4;
-    SlideBar bar;
+  //  SlideBar bar;
    
 
 
-    boolean[] keys = new boolean[1024];
-    public void keyPressed() {
-        keys[keyCode] = true;
-    }
+    // boolean[] keys = new boolean[1024];
+    // public void keyPressed() {
+    //     keys[keyCode] = true;
+    // }
     
-    public void keyReleased() {
-        keys[keyCode] = true;
-    }
+    // public void keyReleased() {
+    //     keys[keyCode] = true;
+    // }
 
-    public boolean checkKey(int c) {
-        return keys[c] || keys [Character.toUpperCase(c)];
-    }
+    // public boolean checkKey(int c) {
+    //     return keys[c] || keys [Character.toUpperCase(c)];
+    // }
     
     public void settings(){
         fullScreen();  // Use fullscreen instead of size to make your interface fullscreen
@@ -73,12 +75,12 @@ public class UI extends PApplet
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
         // hline = new HorizontalLines(250, 40, 900, this);
        circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
-       box = new SquareBox(520,290 ,40, 40, this);
+       box = new SquareBox(660,140 ,70, 70, this);
        text = new TextBox(50, 690, 50, 150, "Arrage", this); 
        text2 = new TextBox(650, 310, 30, 130, "Track Write", this);
        text3 = new TextBox(790, 310, 30, 130, "Data", this);
        text4 = new TextBox(790, 200, 30, 130,"£ TX..", this);
-       bar = new SlideBar(650, 100, this, 100, 30);
+      // bar = new SlideBar(520, 120, this, 250, 50);
        minim = new Minim(this);
        songs[1] = minim.loadFile("musicrap1.mp3");
        songs[2] = minim.loadFile("kala.mp3");
@@ -101,7 +103,7 @@ public class UI extends PApplet
 
 
 
-        for (int i=0; i < 16; i++) // Square buttons 
+        for (int i=0; i < 16; i++) 
         {
             fill(255);
             SquareButtons but = new SquareButtons(250+(i*60), 620, 50, i+1, this); 
@@ -331,12 +333,17 @@ public class UI extends PApplet
         }
         // }
 
+        for(int i =0; i < 2; i++)
+        {
+            SlideBar sbar = new  SlideBar(520+(i*50), 120, this, 250, 50); //(520, 120, this, 250, 50);
+            bar.add(sbar); // name in array
+        }
+
 
 
 
     }
     int click = -1;
-    boolean slide = false;
     public void mousePressed()
     {
         for(int i =0; i < 16; i++)
@@ -355,9 +362,23 @@ public class UI extends PApplet
                 click = buttons.get(i).getNum();
             }
         }
-        if(mouseX > bar.x && mouseX < bar.x + bar.getLength() && mouseY > bar.y && mouseY < bar.y + bar.getLength()/2)
+        for(SlideBar s : bar)
         {
-            slide = true;
+            if(mouseX > s.x && mouseX < s.x + s.getLength() && mouseY > s.y && mouseY < s.y + s.getLength()/2)
+            {
+                s.setSliding(true);
+            }
+        }
+        
+    }
+    public void keyPressed()
+    {
+        for(SlideBar s : bar)
+        {
+            if(key == 'b' && s.isSliding() == true)
+            {
+                s.setSliding(false);
+            }
         }
     }
 
@@ -383,7 +404,7 @@ public class UI extends PApplet
        text2.render();
        text3.render();
        text4.render();
-       bar.render();
+    //   bar.render();
 
        for(UIElement element: elements)
        {
@@ -400,12 +421,18 @@ public class UI extends PApplet
             bt.render();
        }
 
-       if(slide == true && mouseY > bar.getLiney()& mouseY < bar.getLiney()+ bar.getDistance())
-       {
-           bar.y = mouseY;
-       }
+       
        
 
+
+       for(SlideBar s: bar)
+       {
+           s.render();
+           if(s.isSliding() == true && mouseY > s.getLiney()& mouseY < s.getLiney()+ s.getDistance())
+            {
+                s.y = mouseY;
+            }
+       }
       /*
         for(RadarBorder bb: borders) // radar border with circles inside 
         {
@@ -500,9 +527,9 @@ public class UI extends PApplet
             vline.render();
         }*/
         
-        if (checkKey(LEFT))
-        {
-            System.out.println("Left arrow key pressed");
-        }
+        // if (checkKey(LEFT))
+        // {
+        //     System.out.println("Left arrow key pressed");
+        // }
     }
 }
