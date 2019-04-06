@@ -400,7 +400,7 @@ public class UI extends PApplet
             bt.render();
        }
 
-       if(slide = true && mouseY > bar.y && mouseY < bar.y + bar.getDistance())
+       if(slide == true && mouseY > bar.getLiney()& mouseY < bar.getLiney()+ bar.getDistance())
        {
            bar.y = mouseY;
        }

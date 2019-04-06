@@ -6,18 +6,21 @@ public class SlideBar extends UIElement
 {
     private float distance;
     private float length;
+    private float linex;
+    private float liney;
     
     public SlideBar(float x, float y, PApplet ui, float distance, float length)
     {
         super(x, y, ui);
         this.distance = distance;
         this.length = length;
+        this.linex = x;
+        this.liney = y;
     }
 
     public void render()
     {
-        float linex = x;
-        float liney = y;
+        
         ui.fill(255,255,0);
         ui.line(linex + length/2,liney, x + length/2, liney + distance);
         ui.fill(0,255,255);
@@ -53,5 +56,33 @@ public class SlideBar extends UIElement
      */
     public void setLength(float length) {
         this.length = length;
+    }
+
+    /**
+     * @return the linex
+     */
+    public float getLinex() {
+        return linex;
+    }
+
+    /**
+     * @param linex the linex to set
+     */
+    public void setLinex(float linex) {
+        this.linex = linex;
+    }
+
+    /**
+     * @return the liney
+     */
+    public float getLiney() {
+        return liney;
+    }
+
+    /**
+     * @param liney the liney to set
+     */
+    public void setLiney(float liney) {
+        this.liney = liney;
     }
 }
