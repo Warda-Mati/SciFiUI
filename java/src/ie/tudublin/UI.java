@@ -40,6 +40,7 @@ public class UI extends PApplet
     TextBox text2;
     TextBox text3;
     TextBox text4;
+    ChordChart chart;
   //  SlideBar bar;
    
 
@@ -81,6 +82,8 @@ public class UI extends PApplet
        text3 = new TextBox(790, 310, 30, 130, "Data", this);
        text4 = new TextBox(790, 200, 30, 130,"£ TX..", this);
       // bar = new SlideBar(520, 120, this, 250, 50);
+      chart = new ChordChart(940, 80, 360, 290, this);// x, y, width, height
+
        minim = new Minim(this);
        songs[1] = minim.loadFile("musicrap1.mp3");
        songs[2] = minim.loadFile("kala.mp3");
@@ -424,6 +427,7 @@ public class UI extends PApplet
        text2.render();
        text3.render();
        text4.render();
+       chart.render();
     //   bar.render();
 
        for(UIElement element: elements)
