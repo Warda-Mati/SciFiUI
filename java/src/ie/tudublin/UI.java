@@ -34,7 +34,8 @@ public class UI extends PApplet
     RadarBorder border;
     HorizontalLines horizonline;//line at the bottom 
     Boxes rec1;//1 
-    Boxes rec2;//2   
+   // Boxes rec2;//2 
+   ColourSquares rec2;  //2 
     Boxes rec3;//big square box where circle is 
     Boxes rec4;//3 above rect rect 2
     Circle circles;
@@ -74,9 +75,11 @@ public class UI extends PApplet
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
         rec1 = new Boxes(50, 420, 150, 250, this,235,90,78);  // x,y,width,height,colour 
-        rec2 = new Boxes(50, 250, 150, 150, this, 245, 0, 78); 
+      //  rec2 = new Boxes(50, 250, 150, 150, this, 245, 0, 78); 
+        rec2 = new ColourSquares(50, 80, 100, this);
         rec3 = new Boxes(250, 120, 250, 250, this, 0, 102,103);
-        rec4 = new Boxes(50, 120, 150, 120, this, 0, 103, 102);
+        // rec4 = new Boxes(50, 120, 150, 120, this, 0, 103, 102);
+        rec4 = new Boxes(50, 280, 150, 120, this, 0, 103, 102);
         // button = new SquareButtons(400,500,50,this); 
         horizonline = new HorizontalLines(0, 750, width - 40 , this);
         // hline = new HorizontalLines(250, 40, 900, this);
@@ -467,7 +470,7 @@ public class UI extends PApplet
            if(s.isSliding() == true && mouseY > s.getLiney()& mouseY < s.getLiney()+ s.getDistance())
             {
                 s.y = mouseY;
-                float newVolume = map(s.y,s.getLiney(),s.getLiney() + s.getDistance(),-50,50);
+                float newVolume = map(s.y,s.getLiney(),s.getLiney() + s.getDistance(),60,-60);
                 songs[click].setGain(newVolume);
                 text(songs[click].getGain(),100,100);
                 text(newVolume,150,100);
@@ -595,8 +598,8 @@ public class UI extends PApplet
                 {
                     textSize(10);
                     fill(0,255,255);
-                    text(song.getSongno(),70,200);
-                    text(song.getTitle(), 120, 200);
+                    text(song.getSongno(),70,325);
+                    text(song.getTitle(), 120, 325);
                 }
             }
         }
