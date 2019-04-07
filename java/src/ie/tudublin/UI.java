@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import processing.core.PApplet;
+import processing.data.Table;
+import processing.data.TableRow;
 public class UI extends PApplet
 {
     Minim  minim;
@@ -24,6 +26,7 @@ public class UI extends PApplet
     // ArrayList<VThinLines> vlines = new ArrayList<VThinLines>();
     ArrayList<SlideBar>  bar = new ArrayList<SlideBar>();
     ArrayList<UIElement> elements = new ArrayList<UIElement>();
+    ArrayList<SongList> list = new ArrayList<SongList>();
 
 
     Button b;
@@ -41,6 +44,8 @@ public class UI extends PApplet
     TextBox text3;
     TextBox text4;
     ChordChart chart;
+
+
   //  SlideBar bar;
    
 
@@ -91,6 +96,8 @@ public class UI extends PApplet
        songs[4] = minim.loadFile("Chamma.mp3");
        songs[5] = minim.loadFile("Dilbar.mp3");
        songs[6] = minim.loadFile("Mujhse.mp3");
+
+       loadSong();
 
        
     
@@ -388,6 +395,11 @@ public class UI extends PApplet
         {
             songs[click].pause();
         }
+        if(key == 'p' && songs[click].isPlaying() == false)
+        {
+            songs[click].play();
+            songs[click].loop();
+        }
         // for(SquareButtons b: buttons)
         // {
         //     if(key == (char)b.getNum())
@@ -461,6 +473,8 @@ public class UI extends PApplet
                 text(newVolume,150,100);
             }
        }
+
+       displaySong();
       /*
         for(RadarBorder bb: borders) // radar border with circles inside 
         {
@@ -559,5 +573,32 @@ public class UI extends PApplet
         // {
         //     System.out.println("Left arrow key pressed");
         // }
+    }
+
+    public void loadSong()
+    {
+        Table table = loadTable("songs.csv","header");
+        for(TableRow row: table.rows())
+        {
+            SongList song = new SongList(row);
+            list.add(song);
+        }
+    }
+
+    public void displaySong()
+    {
+        for(SquareButtons b: buttons)
+        {
+            for(SongList song: list)
+            {
+                if(click == b.getNum() && b.getNum() == song.getSongno())
+                {
+                    textSize(10);
+                    fill(0,255,255);
+                    text(song.getSongno(),70,200);
+                    text(song.getTitle(), 120, 200);
+                }
+            }
+        }
     }
 }
