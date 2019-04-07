@@ -381,6 +381,25 @@ public class UI extends PApplet
                 s.setSliding(false);
             }
         }
+        if(key == 's' && songs[click].isPlaying() == true)
+        {
+            songs[click].pause();
+        }
+        // for(SquareButtons b: buttons)
+        // {
+        //     if(key == (char)b.getNum())
+        //     {
+        //         if(click != -1)
+        //         {
+        //             songs[click].pause();
+        //         }
+        //         songs[b.getNum()].play();
+        //         songs[b.getNum()].loop();
+        //         songs[b.getNum()].setGain(0);
+        //         click = b.getNum();
+
+        //     }
+        // }
     }
 
     public void draw()
@@ -432,7 +451,7 @@ public class UI extends PApplet
            if(s.isSliding() == true && mouseY > s.getLiney()& mouseY < s.getLiney()+ s.getDistance())
             {
                 s.y = mouseY;
-                float newVolume = map(s.y,s.getLiney(),s.getLiney() + s.getDistance(),-20,20);
+                float newVolume = map(s.y,s.getLiney(),s.getLiney() + s.getDistance(),-50,50);
                 songs[click].setGain(newVolume);
                 text(songs[click].getGain(),100,100);
                 text(newVolume,150,100);
