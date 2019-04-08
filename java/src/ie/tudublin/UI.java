@@ -395,12 +395,15 @@ public class UI extends PApplet
             }
         
       colorMode(HSB);
-       for(int i =0; i < ai.bufferSize();i++)
+      if(click != -1)
+      {
+        for(int i =0; i < songs[click].bufferSize();i++)
        {
            stroke(map(i,0,frame,0,255),255,255);
-           line(i+300,50,i,50 + ai.left.get(i)*50);
+           line(i+300,50,i,50 + songs[click].left.get(i)*50);
        }
-       }
+       }  
+      }
        colorMode(RGB);
 
        displaySong();
