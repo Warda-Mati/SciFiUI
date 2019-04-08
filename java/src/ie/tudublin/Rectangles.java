@@ -37,7 +37,7 @@ public class Rectangles extends UIElement{
     //         ui.noFill();
     //         ui.stroke(red,green,blue);
     //     }
-        ui.fill(red, green, blue);
+        ui.fill(red, green, blue,200);
         ui.stroke(200,0,150);
         ui.rect(x, y, size, length);
         ui.fill(ui.random(0,255),ui.random(0,255),ui.random(0,255));

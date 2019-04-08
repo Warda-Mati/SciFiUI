@@ -35,6 +35,7 @@ public class SquareBox extends UIElement {
        //ui.rect(x, y, size, size);
 
        ui.rect(x + size/12, y + size/12, size, size);
+      
        ui.line(x-10,y-10, x+10, y-10); // left top corner  horizontal line 
        ui.line(x-10, y-10, x-10, y+10); //left top corner   verticle line 
        ui.line(x-10, y+20, x-10, y+60); // left veticle line 

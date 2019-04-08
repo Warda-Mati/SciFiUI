@@ -21,7 +21,7 @@ public class ColourSquares extends UIElement
     {
     
         ui.strokeWeight(2);
-        ui.stroke(255);
+        ui.noStroke();
         for(int boxy=0; boxy< y + size; boxy=boxy+20){
             for(int box=0; box< x + size; box=box+20){
                 float d = ui.dist(box,boxy,ui.mouseX, ui.mouseY);

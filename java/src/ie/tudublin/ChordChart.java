@@ -25,7 +25,7 @@ public class ChordChart extends UIElement
         ui.noFill();
         ui.rect(x, y, length, size);
         int gap = 17;
-        float numbars = (int)length/x + gap;
+        float numbars = (int)length/x + gap; 
         float currwidth = 0;
         for(int i =0; i < numbars; i++)
         {
