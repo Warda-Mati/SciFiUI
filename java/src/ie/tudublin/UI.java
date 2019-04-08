@@ -71,7 +71,7 @@ public class UI extends PApplet
      chart = new ChordChart(940, 80, 360, 290, this);// x, y, width, height
      //wave = new Wave(this, 50);
  
-
+        // songs name
        minim = new Minim(this);
        songs[1] = minim.loadFile("musicrap1.mp3");
        songs[2] = minim.loadFile("kala.mp3");
