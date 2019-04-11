@@ -302,7 +302,7 @@ public class UI extends PApplet
         {
             songs[click].pause();
         }
-        if(key == 'p' && songs[click].isPlaying() == false)
+        if(key == 'p' && songs[click].isPlaying() == false) // play song 
         {
             songs[click].play();
             songs[click].loop();
