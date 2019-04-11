@@ -1,6 +1,5 @@
 package ie.tudublin;
 import java.util.ArrayList;
-
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
@@ -17,8 +16,8 @@ public class UI extends PApplet
     ArrayList<SongList> list = new ArrayList<SongList>();
 
 
-    Button b;
-    MovingCircle mc;
+    
+ 
     RadarBorder border;
     HorizontalLines horizonline;//line at the bottom 
     Boxes rec1;//1 
@@ -46,11 +45,7 @@ public class UI extends PApplet
     }
 
     public void setup() {
-
     //colorMode(HSB);
-    
-    b = new Button(this, 50, 50, 100, 50, "I am a button");
-    mc = new MovingCircle(this, width / 2, height / 2, 50);
     border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
     rec1 = new Boxes(50, 420, 150, 250, this,235,90,78);  // x,y,width,height,colour 
     //rec2 = new Boxes(50, 250, 150, 150, this, 245, 0, 78); 
@@ -134,7 +129,7 @@ public class UI extends PApplet
 
         for (int i=0; i < 6; i++) //  rects at the bottom 
         {
-             UIElement  rec= new Rectangles(250+(i*160), 720, 150, 15, this,255,0,0); //width, move up/down,  distance , height 
+             UIElement  rec= new Rectangles(250+(i*160), 720, 150, 15, this,255,0,70); //width, move up/down,  distance , height 
              elements.add(rec);
         }
 
@@ -238,8 +233,6 @@ public class UI extends PApplet
         }
         
 
-
-
         for(int i = 0; i < 94; i++)
         {
             UIElement vline = new VThinLines(250+(i*10),height/2 +5, 10, this);
@@ -265,9 +258,6 @@ public class UI extends PApplet
             SlideBar sbar = new  SlideBar(520+(i*60), 120, this, 250, 50); //(520, 120, this, 250, 50);
             bar.add(sbar); // name in array
         }
-
-
-
 
     }
     int click = -1;
@@ -375,9 +365,6 @@ public class UI extends PApplet
             bt.render();
        }
        
-       
-       
-       
        for(SlideBar s: bar)
        {
            s.render();
@@ -390,7 +377,7 @@ public class UI extends PApplet
                 text(songs[click].getGain(),100,100);
                 text(newVolume,150,100);
                 fill(0,255,255);
-                textSize(20);
+                textSize(15);
                 text(num,700,180);
             }
         
@@ -404,6 +391,7 @@ public class UI extends PApplet
        }
        }  
       }
+
        colorMode(RGB);
 
        displaySong();
