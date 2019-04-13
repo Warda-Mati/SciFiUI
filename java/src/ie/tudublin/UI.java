@@ -9,7 +9,7 @@ import processing.data.TableRow;
 public class UI extends PApplet
 {
     Minim  minim;
-    AudioPlayer[] songs = new AudioPlayer[16];
+    AudioPlayer[] songs = new AudioPlayer[26];
     ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>(); // square button at the bottom 
     ArrayList<SlideBar>  bar = new ArrayList<SlideBar>();
     ArrayList<UIElement> elements = new ArrayList<UIElement>();
@@ -51,6 +51,7 @@ public class UI extends PApplet
     //rec2 = new Boxes(50, 250, 150, 150, this, 245, 0, 78); 
     rec2 = new ColourSquares(50, 80, 100, this);
     rec3 = new Boxes(250, 120, 250, 250, this, 0, 102,103);
+
     // rec4 = new Boxes(50, 120, 150, 120, this, 0, 103, 102);
     rec4 = new Boxes(50, 280, 150, 120, this, 0, 103, 102);
     // button = new SquareButtons(400,500,50,this); 
@@ -74,9 +75,20 @@ public class UI extends PApplet
        songs[4] = minim.loadFile("Chamma.mp3");
        songs[5] = minim.loadFile("Dilbar.mp3");
        songs[6] = minim.loadFile("Mujhse.mp3");
-       ai = minim.getLineIn(minim.MONO, frame, sample, resolution);
+       songs[7] = minim.loadFile("Saiyaan Superstar.mp3");
+       songs[8] = minim.loadFile("Shake Karaan.mp3");
+       songs[9] = minim.loadFile("Cheez Badi Hai.mp3");
+       songs[10] = minim.loadFile("Ding Dang.mp3");
+       songs[11] = minim.loadFile("Kamariya.mp3");
+       songs[12] = minim.loadFile("Mere saiyyan.mp3");
+       songs[13] = minim.loadFile("Mere Rashke Qamar.mp3");
+    //    songs[14] = minim.loadFile(".mp3");
+    //    songs[15] = minim.loadFile(".mp3");
+    //    songs[16] = minim.loadFile(".mp3");
 
-     loadSong();
+
+        ai = minim.getLineIn(minim.MONO, frame, sample, resolution);
+        loadSong();
 
        
     
@@ -99,22 +111,22 @@ public class UI extends PApplet
         for (int i=0; i < 4; i++) 
         {
             fill(255);
-            UIElement sbut = new SquareButtons(650+(i*73), 250, 50, 0, this);  
+            UIElement sbut = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
             elements.add(sbut);
         }
 
         for (int i=0; i < 2; i++) // Square buttons  inside box
         {
             fill(255);
-            UIElement sbut2 = new SquareButtons(790+(i*73), 140, 50, 0, this);  
+            UIElement sbut2 = new SquareButtons(790+(i*73), 140, 50, 21+i, this);  
             elements.add(sbut2);
         }
 
 
-        for (int i=0; i < 2; i++) // Square buttons  
+        for (int i=0; i < 2; i++) // Square buttons  inside box
         {
             fill(255);
-            UIElement sbut3 = new SquareButtons(59+(i*80), 440, 50,0, this);  
+            UIElement sbut3 = new SquareButtons(59+(i*80), 440, 50,23+i, this);  
             elements.add(sbut3);
            
         }
@@ -122,7 +134,7 @@ public class UI extends PApplet
         for (int i=0; i < 2; i++) // Square buttons  inside box 
         {
             fill(255);
-            UIElement sbut2 = new SquareButtons(59+(i*80), 600, 50,0, this);  
+            UIElement sbut2 = new SquareButtons(59+(i*80), 600, 50,25+i, this);  
             elements.add(sbut2);
         }
 
@@ -132,8 +144,6 @@ public class UI extends PApplet
              UIElement  rec= new Rectangles(250+(i*160), 720, 150, 15, this,255,0,70); //width, move up/down,  distance , height 
              elements.add(rec);
         }
-
-
 
 
         for (int i=0; i < 37; i++) // lines

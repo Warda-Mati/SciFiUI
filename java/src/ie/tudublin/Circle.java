@@ -1,7 +1,5 @@
 package ie.tudublin;
-
 import processing.core.PApplet;
-
 public class Circle extends UIElement
 {
     private float diameter;
@@ -13,7 +11,8 @@ public Circle (float x, float y ,float radius, float diameter, PApplet ui)
    radius = diameter/2;
    }
 
-    float rotation;
+    float rotation = 0;
+    float rotation1 = 0;
     public void render()
     {
         for(int i = 0; i < 5; i++) // circles 
@@ -34,22 +33,50 @@ public Circle (float x, float y ,float radius, float diameter, PApplet ui)
         }
        ui.popMatrix();
         rotation -= 0.8f; // rotation speed
-        /*ui.pushMatrix();
-        ui.translate(ui.width/2,ui.height/2);
-        ui.rotate(rotation - 0.05f); // speed 
-         outline = 100;
-        for(int i = 0; i < 20; i++)
-        {
-            ui.stroke(200,200,0);
-            ui.arc(0,0,outline,outline,1.60f,ui.PI);
-              outline += 1;
-        }
-        ui.popMatrix();
-          rotation += 0.95f;*/
+      
     }
+
+//     for (int i = 0; i < 50; i++)
+//     {
+//        ui. noFill();
+//        // stroke(255, 128,128);
+//        ui.stroke(ui.random(170),ui.random(170), ui.random(170));
+//        ui.ellipse(x, y, 20+(i*3), 20+(i*3));
+//     }
+
+//     ui.pushMatrix();
+//     ui.translate(x,y);
+//     ui.rotate(rotation);
+//     int outline = 200;
+//     for(int i =0; i < 5; i++)
+//     {
+//         ui.strokeWeight(3);
+//         ui.stroke(ui.random(170),ui.random(170), ui.random(170));
+//       //  stroke(0, 255,89);
+//       ui.arc(0, 0, outline, outline, 0, ui.PI);
+//         outline += 10;
+//         ui.strokeWeight(1);
+//     }
+//     ui.popMatrix();
+//     rotation -=0.5f;
+
+// //2nd one 
+//     ui.pushMatrix();
+//     ui.translate(x,y);
+//     ui.rotate(rotation1);
+//     int outline1 = 200;
+
+//     for(int i = 0;i < 5; i++)
+//     {
+//         ui.strokeWeight(2);
+//        // stroke(0 + (i*30),0 + (i*10),0 + (i*25));
+//        ui.stroke(ui.random(170),ui.random(170), ui.random(170));
+//        ui.arc(0, 0, outline1, outline1, 0, ui.PI);
+//         outline1 +=10;
+//         ui.strokeWeight(1);
+//     }
+//     ui.popMatrix();
+//     rotation1 += 0.2f;
+//     }
 }
 
-// noStroke();
-// lights();
-// translate(58, 48, 0);
-// sphere(28);
