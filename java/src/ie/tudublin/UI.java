@@ -14,6 +14,7 @@ public class UI extends PApplet
     ArrayList<SlideBar>  bar = new ArrayList<SlideBar>();
     ArrayList<UIElement> elements = new ArrayList<UIElement>();
     ArrayList<SongList> list = new ArrayList<SongList>();
+    ArrayList<Lights> light = new ArrayList<Lights>();
   
 
 
