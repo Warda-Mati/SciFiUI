@@ -84,6 +84,22 @@ public class UI extends PApplet
 
         ai = minim.getLineIn(minim.MONO, frame, sample, resolution);
         loadSong();
+        // lights 
+        for(int i = 0; i < 8; i++)
+        {
+            boolean direction;
+            if(i%2 == 0)
+            {
+                direction = false;
+            }
+            else
+            {
+                direction = true;
+            }
+            
+            Lights l = new Lights(200 + (i*150), height, this, 100, direction);
+            light.add(l);
+        }
 
        
         
