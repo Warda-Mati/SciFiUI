@@ -408,6 +408,15 @@ public class UI extends PApplet
            line(i+300,50,i,50 + songs[click].left.get(i)*50);
        }
        }  
+       // drawing the lights 
+       int i = 1;
+      for (Lights l:light)
+      {
+          float color = 255/light.size();
+          stroke(color * i,255,255,showlight);
+          l.render();
+          i++;
+      }
       
      
 
