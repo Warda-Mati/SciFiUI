@@ -14,6 +14,7 @@ public class UI extends PApplet
     ArrayList<SlideBar>  bar = new ArrayList<SlideBar>();
     ArrayList<UIElement> elements = new ArrayList<UIElement>();
     ArrayList<SongList> list = new ArrayList<SongList>();
+  
 
 
     
@@ -21,7 +22,6 @@ public class UI extends PApplet
     RadarBorder border;
     HorizontalLines horizonline;//line at the bottom 
     Boxes rec1;//1 
-   // Boxes rec2;//2 
     ColourSquares rec2;  //2 
     Boxes rec3;//big square box where circle is 
     Boxes rec4;//3 above rect rect 2
@@ -36,8 +36,8 @@ public class UI extends PApplet
     public static int resolution = 16;
     public static int frame = 1024;
     AudioInput ai;
-    //Wave wave;
-  //  SlideBar bar;
+   
+
    
  
     public void settings(){
@@ -48,24 +48,18 @@ public class UI extends PApplet
     //colorMode(HSB);
     border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
     rec1 = new Boxes(50, 420, 150, 250, this,235,90,78);  // x,y,width,height,colour 
-    //rec2 = new Boxes(50, 250, 150, 150, this, 245, 0, 78); 
     rec2 = new ColourSquares(50, 80, 100, this);
     rec3 = new Boxes(250, 120, 250, 250, this, 0, 102,103);
-
-    // rec4 = new Boxes(50, 120, 150, 120, this, 0, 103, 102);
     rec4 = new Boxes(50, 280, 150, 120, this, 0, 103, 102);
-    // button = new SquareButtons(400,500,50,this); 
     horizonline = new HorizontalLines(0, 750, width - 40 , this);
-    // hline = new HorizontalLines(250, 40, 900, this);
     circles = new Circle(315 + 250/4, 180 + 250/4, 80, 80 , this);
     box = new SquareBox(660,140 ,70, 70, this);
     text = new TextBox(50, 690, 50, 150, "Arrage", this); 
     text2 = new TextBox(650, 310, 30, 130, "Track Write", this);
     text3 = new TextBox(790, 310, 30, 130, "Data", this);
     text4 = new TextBox(790, 200, 30, 130,"£ TX..", this);
-    // bar = new SlideBar(520, 120, this, 250, 50);
      chart = new ChordChart(940, 80, 360, 290, this);// x, y, width, height
-     //wave = new Wave(this, 50);
+ 
  
         // songs name
        minim = new Minim(this);
@@ -81,7 +75,7 @@ public class UI extends PApplet
        songs[10] = minim.loadFile("Ding Dang.mp3");
        songs[11] = minim.loadFile("Kamariya.mp3");
        songs[12] = minim.loadFile("Mere saiyyan.mp3");
-       songs[13] = minim.loadFile("Mere Rashke Qamar.mp3");
+       songs[18] = minim.loadFile("Mere Rashke Qamar.mp3");
     //    songs[14] = minim.loadFile(".mp3");
     //    songs[15] = minim.loadFile(".mp3");
     //    songs[16] = minim.loadFile(".mp3");
@@ -91,7 +85,7 @@ public class UI extends PApplet
         loadSong();
 
        
-    
+        
         // radar Border
         for (int i=0; i < 9; i++) 
         {
@@ -111,8 +105,10 @@ public class UI extends PApplet
         for (int i=0; i < 4; i++) 
         {
             fill(255);
-            UIElement sbut = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
-            elements.add(sbut);
+            SquareButtons but  = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
+            buttons.add(but);
+            // UIElement sbut = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
+            // elements.add(sbut);
         }
 
         for (int i=0; i < 2; i++) // Square buttons  inside box
@@ -271,9 +267,10 @@ public class UI extends PApplet
 
     }
     int click = -1;
+    int slider = -1;
     public void mousePressed()
     {
-        for(int i =0; i < 16; i++)
+        for(int i =0; i < 20; i++)
         {
             float x = buttons.get(i).x + (buttons.get(i).getLength()/4);
             float y = buttons.get(i).y + (buttons.get(i).getLength()/4);
@@ -290,15 +287,19 @@ public class UI extends PApplet
                 click = buttons.get(i).getNum();
             }
         }
-        for(SlideBar s : bar)
+        for(int i =0;  i < bar.size(); i++)
         {
+            SlideBar s = bar.get(i);
             if(mouseX > s.x && mouseX < s.x + s.getLength() && mouseY > s.y && mouseY < s.y + s.getLength()/2)
             {
                 s.setSliding(true);
+                slider = i;
+
             }
         }
         
     }
+    
     public void keyPressed()
     {
         for(SlideBar s : bar)
@@ -306,6 +307,7 @@ public class UI extends PApplet
             if(key == 'b' && s.isSliding() == true)
             {
                 s.setSliding(false);
+                slider = -1;
             }
         }
         if(key == 's' && songs[click].isPlaying() == true)
@@ -317,48 +319,27 @@ public class UI extends PApplet
             songs[click].play();
             songs[click].loop();
         }
-        // for(SquareButtons b: buttons)
-        // {
-        //     if(key == (char)b.getNum())
-        //     {
-        //         if(click != -1)
-        //         {
-        //             songs[click].pause();
-        //         }
-        //         songs[b.getNum()].play();
-        //         songs[b.getNum()].loop();
-        //         songs[b.getNum()].setGain(0);
-        //         click = b.getNum();
-
-        //     }
-        // }
+      
     }
-
+    float showlight = 0;
     public void draw()
     {
         background(0);
-        // b.render();
-        // mc.update();
-        // mc.render();
-        // border.render();
-      
+    
        rec1.render();
        rec1.render();
        rec2.render();
        rec3.render();
        rec4.render();
-        circles.render();
-        box.render();
-        //hline.render();
-        //button.render();
-        horizonline.render();
+       circles.render();
+       box.render();
+       horizonline.render();
        text.render();
        text2.render();
        text3.render();
        text4.render();
        chart.render();
-       //wave.render();
-    //   bar.render();
+ 
 
        for(UIElement element: elements)
        {
@@ -375,10 +356,11 @@ public class UI extends PApplet
             bt.render();
        }
        
-       for(SlideBar s: bar)
+       for(int i = 0; i < bar.size(); i++)
        {
+           SlideBar s = bar.get(i);
            s.render();
-           if(s.isSliding() == true && mouseY > s.getLiney()& mouseY < s.getLiney()+ s.getDistance() && click != -1)
+           if(s.isSliding() == true && mouseY > s.getLiney()& mouseY < s.getLiney()+ s.getDistance() && click != -1 && slider == 0)
             {
                 s.y = mouseY;
                 float newVolume = map(s.y,s.getLiney(),s.getLiney() + s.getDistance(),60,-60);
@@ -390,6 +372,9 @@ public class UI extends PApplet
                 textSize(15);
                 text(num,700,180);
             }
+           
+        }
+        
         
       colorMode(HSB);
       if(click != -1)
@@ -400,7 +385,8 @@ public class UI extends PApplet
            line(i+300,50,i,50 + songs[click].left.get(i)*50);
        }
        }  
-      }
+      
+     
 
        colorMode(RGB);
 
