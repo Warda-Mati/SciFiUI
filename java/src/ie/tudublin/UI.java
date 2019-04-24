@@ -389,6 +389,12 @@ public class UI extends PApplet
                 textSize(15);
                 text(num,700,180);
             }
+            // Mapping alpha of lights to Slider
+            else if(s.isSliding() == true && mouseY > s.getLiney()& mouseY < s.getLiney()+ s.getDistance() && click != -1 && slider == 1)
+            {
+                s.y = mouseY;
+                showlight = map(s.y,s.getLiney(),s.getLiney() + s.getDistance(),0,255);
+            }
            
         }
         
