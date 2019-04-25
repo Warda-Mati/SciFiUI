@@ -17,7 +17,10 @@ You are able to click on the buttons labelled 1-16, each will in turn play a dif
 # How it works
 
 
+
 # What I am most proud of in the assignment
+
+What I am most proud of is the elaborate design I was able to create. It took a lot of classes for each individual element, even for small designs such as lines, but in the end the design turned out to be elegant and colorful. As well as that it just fit in of what I imagined a futuristic neon DJ system would be, not just in the design of the interface but also the funcionality. I'm impressed that I could make some functions such as playing songs and adjusting volume work. Last of all, I'm proud of the concepts of OOP that I have learned and practice I have gained over the month I have been working on the UI.
 
 # Markdown Tutorial
 
