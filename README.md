@@ -16,6 +16,12 @@ You are able to click on the buttons labelled 1-16, each will in turn play a dif
 
 # How it works
 
+There are multiple classes that are basically the designs made using shapes and rotations from the Processing libraries. They are all child classes of the super abstract class UIElements. Polymorphism is used when the elements are added to the elements arraylist of type UIElements.
+
+In mousePressed() there are a lot of things in it. First of all if the mouse is clicked within a Button object, a variable called click will be assigned the number of the Button object, which is a field of the Button class. An array called songs is made which holds all the different loaded mp3 files. Depending on what Button object is clicked, the click variable will be the index of the songs array, in which every button will play a different song.
+
+
+
 
 
 # What I am most proud of in the assignment
