@@ -12,9 +12,10 @@ A UI for a futuristic DJ system, made with Java and Processing with some functio
 
 # Instructions
 
-You are able to click on the buttons labled 1-16, each will in turn play a diffrent song. You can press s to stop the song from playing. As well as that, there are 2 slider bars on the top, around the middle. You are able to click on the bar and slide it down or up then press b to stop controlling the bar. The first one will control the volume of the song playing, while the second one will control the intensity of the light.
+You are able to click on the buttons labelled 1-16, each will in turn play a diffrent song and labelled 17 -22, which will play beats. You can press s to stop the song from playing and p to play again. As well as that, there are 2 slider bars on the top, around the middle. You are able to click on the bar and slide it down or up then press b to stop controlling the bar. The first one will control the volume of the song playing, while the second one will control the intensity of the light.
 
 # How it works
+
 
 # What I am most proud of in the assignment
 
