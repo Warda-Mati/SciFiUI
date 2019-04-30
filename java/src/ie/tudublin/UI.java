@@ -44,9 +44,9 @@ public class UI extends PApplet
     }
 
     public void setup() {
-    //colorMode(HSB);
+   
     border = new RadarBorder(width/2 - 400,height/2 - 100 , 80, 10,this," Balanced");
-    rec1 = new Boxes(50, 420, 150, 250, this,235,90,78);  // x,y,width,height,colour 
+    rec1 = new Boxes(50, 420, 150, 250, this,235,90,78);  
     rec2 = new ColourSquares(50, 80, 100, this);
     rec3 = new Boxes(250, 120, 250, 250, this, 0, 102,103);
     rec4 = new Boxes(50, 280, 150, 120, this, 0, 103, 102);
@@ -57,7 +57,7 @@ public class UI extends PApplet
     text2 = new TextBox(650, 310, 30, 130, "Track Write", this);
     text3 = new TextBox(790, 310, 30, 130, "Data", this);
     text4 = new TextBox(790, 200, 30, 130,"£ TX..", this);
-     chart = new ChordChart(940, 80, 360, 290, this);// x, y, width, height
+     chart = new ChordChart(940, 80, 360, 290, this);
  
  
         // songs names 
@@ -106,7 +106,7 @@ public class UI extends PApplet
         // radar Border
         for (int i=0; i < 9; i++) 
         {
-            UIElement bb = new RadarBorder(250+(i* 105) , height/2 +20, 80, 10, this , "Balance"); // x (distance), y, move up/down, size 
+            UIElement bb = new RadarBorder(250+(i* 105) , height/2 +20, 80, 10, this , "Radar"); // x (distance), y, move up/down, size 
             elements.add(bb);
         }
 
@@ -125,8 +125,6 @@ public class UI extends PApplet
             fill(255);
             SquareButtons but = new SquareButtons(790+(i*73), 140, 50, 17+i, this); 
             buttons.add(but); 
-        //     UIElement sbut2 = new SquareButtons(790+(i*73), 140, 50, 17+i, this);  
-        //    elements.add(sbut2);
         }
 
 
@@ -148,7 +146,7 @@ public class UI extends PApplet
 
         for (int i=0; i < 6; i++) //  rects at the bottom 
         {
-             UIElement  rec= new Rectangles(250+(i*160), 720, 150, 15, this,255,0,70); //width, move up/down,  distance , height 
+             UIElement  rec= new Rectangles(250+(i*160), 720, 150, 15, this,255,0,70); 
              elements.add(rec);
         }
 
@@ -183,7 +181,6 @@ public class UI extends PApplet
             UIElement vrec = new Rectangles(250, 530+(i*20), 340, 6, this, 125, 89, 0); //width, move up/down,  distance , height 
              elements.add(vrec);
         }
-
 
 
         for (int i=0; i < 3; i++) //  rects at the bottom  
@@ -278,11 +275,6 @@ public class UI extends PApplet
           // Square buttons beside circle 
           for (int i=0; i < 4; i++) 
           {
-              //fill(255);
-              //SquareButtons but  = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
-              //buttons.add(but);
-              // UIElement sbut = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
-              // elements.add(sbut);
               UIElement but = new BGbutton(680+(i*73), 265, this, 30, (int)random(0,255) );
               elements.add(but);
   ;       }
