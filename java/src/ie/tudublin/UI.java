@@ -369,6 +369,7 @@ public class UI extends PApplet
        chart.render();
  
 
+       // background lights
        for(UIElement element: elements)
        {
            element.render();
