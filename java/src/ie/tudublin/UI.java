@@ -17,9 +17,6 @@ public class UI extends PApplet
     ArrayList<Lights> light = new ArrayList<Lights>();
   
 
-
-    
- 
     RadarBorder border;
     HorizontalLines horizonline;//line at the bottom 
     Boxes rec1;//1 
@@ -76,10 +73,17 @@ public class UI extends PApplet
        songs[10] = minim.loadFile("Ding Dang.mp3");
        songs[11] = minim.loadFile("Kamariya.mp3");
        songs[12] = minim.loadFile("Mere saiyyan.mp3");
+       songs[13] = minim.loadFile("Dance Basanti.mp3");
+       songs[14] = minim.loadFile("Prem Ratan.mp3");
+       songs[15] = minim.loadFile("Dilli wali girlfriend.mp3");
        songs[18] = minim.loadFile("Mere Rashke Qamar.mp3");
-    //    songs[14] = minim.loadFile(".mp3");
-    //    songs[15] = minim.loadFile(".mp3");
-    //    songs[16] = minim.loadFile(".mp3");
+      // songs[2] = minim.loadFile("kala.mp3");
+      // songs[2] = minim.loadFile("kala.mp3");
+      // songs[2] = minim.loadFile("kala.mp3");
+      // songs[2] = minim.loadFile("kala.mp3");
+      // songs[22] = minim.loadFile("Dilli wali girlfriend.mp3");
+
+   
 
 
         ai = minim.getLineIn(minim.MONO, frame, sample, resolution);
@@ -118,21 +122,15 @@ public class UI extends PApplet
             buttons.add(but);
         }
 
-        // Square buttons beside circle 
-        for (int i=0; i < 4; i++) 
-        {
-            fill(255);
-            SquareButtons but  = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
-            buttons.add(but);
-            // UIElement sbut = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
-            // elements.add(sbut);
-        }
+      
 
-        for (int i=0; i < 2; i++) // Square buttons  inside box
+        for (int i=0; i < 2; i++) // Square buttons 
         {
             fill(255);
+            // SquareButtons but = new SquareButtons(790+(i*73), 140, 50, 21+i, this); 
+            // buttons.add(but); 
             UIElement sbut2 = new SquareButtons(790+(i*73), 140, 50, 21+i, this);  
-            elements.add(sbut2);
+           elements.add(sbut2);
         }
 
 
@@ -282,12 +280,24 @@ public class UI extends PApplet
             bar.add(sbar); // name in array
         }
 
+          // Square buttons beside circle 
+          for (int i=0; i < 4; i++) 
+          {
+              //fill(255);
+              //SquareButtons but  = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
+              //buttons.add(but);
+              // UIElement sbut = new SquareButtons(650+(i*73), 250, 50, 17+i, this);  
+              // elements.add(sbut);
+              UIElement but = new BGbutton(680+(i*73), 265, this, 30, (int)random(0,255) );
+              elements.add(but);
+  ;       }
+
     }
     int click = -1;
     int slider = -1;
     public void mousePressed()
     {
-        for(int i =0; i < 20; i++)
+        for(int i =0; i < 16; i++)
         {
             float x = buttons.get(i).x + (buttons.get(i).getLength()/4);
             float y = buttons.get(i).y + (buttons.get(i).getLength()/4);
@@ -335,9 +345,10 @@ public class UI extends PApplet
         {
             songs[click].play();
             songs[click].loop();
-        }
-      
+        } 
     }
+
+
     float showlight = 0;
     public void draw()
     {
@@ -362,6 +373,21 @@ public class UI extends PApplet
        {
            element.render();
        }
+    
+        for(int i =0; i < elements.size(); i++)
+        {
+            UIElement e = elements.get(i);
+            e.render();
+            if(e instanceof BackGroundLight )
+            {
+                
+                if(dist(mouseX,mouseY,e.x,e.y) < ((BGbutton)e).diameter)
+                {
+                    ((BackGroundLight)e).change(((BGbutton)e).color);
+                    ((BGbutton)e).color = (int)random(0,255);
+                }
+            }
+        }
 
        
        for(SquareButtons bt: buttons)
@@ -422,6 +448,8 @@ public class UI extends PApplet
 
        colorMode(RGB);
 
+       
+
        displaySong();
     }
 
@@ -443,7 +471,7 @@ public class UI extends PApplet
             {
                 if(click == b.getNum() && b.getNum() == song.getSongno())
                 {
-                    textSize(15);
+                    textSize(14);
                     fill(0,255,255);
                     text(song.getSongno(),70,325);
                     text(song.getTitle(), 120, 325);
