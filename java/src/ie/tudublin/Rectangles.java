@@ -18,7 +18,6 @@ public class Rectangles extends UIElement{
         this. size = size; 
         this. length = length; 
         this.ui = ui;  
-       // this.hue = hue;
        this.red = red;
        this.green = green;
        this.blue = blue;
@@ -26,17 +25,8 @@ public class Rectangles extends UIElement{
     }
 
 
-    public void render () // it was boolean fill 
+    public void render () 
     {
-    //     if(fill = true)
-    //     {
-    //         ui.fill(red,green,blue);
-    //     }
-    //     else
-    //     {
-    //         ui.noFill();
-    //         ui.stroke(red,green,blue);
-    //     }
         ui.fill(red, green, blue,200);
         ui.stroke(200,0,150);
         ui.rect(x, y, size, length);

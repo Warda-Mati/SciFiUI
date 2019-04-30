@@ -18,11 +18,6 @@ public class SquareButtons extends UIElement{
     public SquareButtons(float x, float y, float length, int num, PApplet ui){
        
         super(x, y, ui);
-        // this.x1 =x1;
-        // this.x2 =x2;
-       
-        // this.y1 =y1;
-        // this.y2 =y2;
         this.length= length;
         this.num = num;
 
@@ -41,7 +36,6 @@ public class SquareButtons extends UIElement{
         ui.rect(x+length/4,y+length/4,length/2,length/2);
         ui.fill(255);
         ui.textSize(10);
-        //ui.line(x1, y1, x2, y2);
     }
 
     /**

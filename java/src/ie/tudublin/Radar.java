@@ -19,10 +19,8 @@ public class Radar extends UIElement // class radar
     public void render()
     {
        ui.noFill();
-       //ui.stroke(250,80,0);
        ui.stroke(255,255,102);
        ui.line(x,(y-radius),x,(y-radius) + 10);
-       //ui.stroke(0,150,200);
        ui.stroke(102,153,255);
        ui.ellipse(x,y,diameter,diameter); 
 

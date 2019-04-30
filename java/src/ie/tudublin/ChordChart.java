@@ -41,22 +41,6 @@ public class ChordChart extends UIElement
                 ui.text(currheight,x+length/2,y+size/2);
             }
         }
-
-
-        // for(float currheight = y + size; currheight >= barheight; currheight = currheight - gap)
-        // {
-        //     ui.fill(255);
-        //    // ui.rect(x,y ,20, currheight);
-        //     ui.rect(x,currheight ,20, y);
-        //     ui.textSize(10);
-        //     ui.text(currheight,x+length/2,y+size/2);
-        // }
-       
-
-
-
-
-
     }
 
 }

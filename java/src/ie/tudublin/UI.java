@@ -9,7 +9,7 @@ import processing.data.TableRow;
 public class UI extends PApplet
 {
     Minim  minim;
-    AudioPlayer[] songs = new AudioPlayer[26];
+    AudioPlayer[] songs = new AudioPlayer[19];
     ArrayList<SquareButtons> buttons = new ArrayList<SquareButtons>(); // square button at the bottom 
     ArrayList<SlideBar>  bar = new ArrayList<SlideBar>();
     ArrayList<UIElement> elements = new ArrayList<UIElement>();
@@ -30,6 +30,7 @@ public class UI extends PApplet
     TextBox text3;
     TextBox text4;
     ChordChart chart;
+    
     public static int sample = 64100;
     public static int resolution = 16;
     public static int frame = 1024;
@@ -76,15 +77,10 @@ public class UI extends PApplet
        songs[13] = minim.loadFile("Dance Basanti.mp3");
        songs[14] = minim.loadFile("Prem Ratan.mp3");
        songs[15] = minim.loadFile("Dilli wali girlfriend.mp3");
-       songs[18] = minim.loadFile("Mere Rashke Qamar.mp3");
-      // songs[2] = minim.loadFile("kala.mp3");
-      // songs[2] = minim.loadFile("kala.mp3");
-      // songs[2] = minim.loadFile("kala.mp3");
-      // songs[2] = minim.loadFile("kala.mp3");
-      // songs[22] = minim.loadFile("Dilli wali girlfriend.mp3");
-
-   
-
+       songs[16] = minim.loadFile("Mere Rashke Qamar.mp3");
+       songs[17] = minim.loadFile("Beat_1.mp3");
+       songs[18] = minim.loadFile("Yung Kartz.mp3");
+     
 
         ai = minim.getLineIn(minim.MONO, frame, sample, resolution);
         loadSong();
@@ -127,17 +123,17 @@ public class UI extends PApplet
         for (int i=0; i < 2; i++) // Square buttons 
         {
             fill(255);
-            // SquareButtons but = new SquareButtons(790+(i*73), 140, 50, 21+i, this); 
-            // buttons.add(but); 
-            UIElement sbut2 = new SquareButtons(790+(i*73), 140, 50, 21+i, this);  
-           elements.add(sbut2);
+            SquareButtons but = new SquareButtons(790+(i*73), 140, 50, 17+i, this); 
+            buttons.add(but); 
+        //     UIElement sbut2 = new SquareButtons(790+(i*73), 140, 50, 17+i, this);  
+        //    elements.add(sbut2);
         }
 
 
         for (int i=0; i < 2; i++) // Square buttons  inside box
         {
             fill(255);
-            UIElement sbut3 = new SquareButtons(59+(i*80), 440, 50,23+i, this);  
+            UIElement sbut3 = new SquareButtons(59+(i*80), 440, 50,19+i, this);  
             elements.add(sbut3);
            
         }
@@ -145,7 +141,7 @@ public class UI extends PApplet
         for (int i=0; i < 2; i++) // Square buttons  inside box 
         {
             fill(255);
-            UIElement sbut2 = new SquareButtons(59+(i*80), 600, 50,25+i, this);  
+            UIElement sbut2 = new SquareButtons(59+(i*80), 600, 50,21+i, this);  
             elements.add(sbut2);
         }
 
@@ -267,17 +263,16 @@ public class UI extends PApplet
             elements.add(vline);
         }
 
-        for (int i=0; i < 8; i++) // lines  above radar borer 
+        for (int i=0; i < 8; i++) 
         {
              UIElement vline1 = new VerticlesLines(650+(i*38), 350, 20, this);
             elements.add(vline1); 
         }
-        
 
         for(int i =0; i < 2; i++)
         {
-            SlideBar sbar = new  SlideBar(520+(i*60), 120, this, 250, 50); //(520, 120, this, 250, 50);
-            bar.add(sbar); // name in array
+            SlideBar sbar = new  SlideBar(520+(i*60), 120, this, 250, 50); 
+            bar.add(sbar); 
         }
 
           // Square buttons beside circle 
@@ -297,7 +292,7 @@ public class UI extends PApplet
     int slider = -1;
     public void mousePressed()
     {
-        for(int i =0; i < 16; i++)
+        for(int i =0; i < 18; i++)
         {
             float x = buttons.get(i).x + (buttons.get(i).getLength()/4);
             float y = buttons.get(i).y + (buttons.get(i).getLength()/4);

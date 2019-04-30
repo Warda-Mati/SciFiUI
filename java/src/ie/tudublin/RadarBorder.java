@@ -2,10 +2,8 @@ package ie.tudublin;
 import processing.core.PApplet;
 
 public class RadarBorder extends UIElement {
-    private int length;  // width 
-    private int size;  // height
-    //private int radius; 
-    // private int diameter;
+    private int length;  
+    private int size;  
     private String text; 
     float rotation = 0;
     float rotation2 = 0;
@@ -13,20 +11,18 @@ public class RadarBorder extends UIElement {
     float rotation4 = 0;
 
     
-    public RadarBorder(int x, int y, int length, int size,/*int diameter*/ PApplet ui,String text) // constructor 
+    public RadarBorder(int x, int y, int length, int size, PApplet ui,String text) // constructor 
     {
         super(x, y, ui);
         this.length = length; 
         this.size = size; 
-        //this.diameter = diameter; 
         this.text = text;
-        //radius = diameter/2;
+
     }
 
     public void render()
     { 
         int gap = 10; 
-        // y + go down | y - go up | x + going right| x - going left 
         int linedistance = 100;  
         ui.noStroke();
         ui.fill(255,100,50);
@@ -52,10 +48,9 @@ public class RadarBorder extends UIElement {
 
         //lines drawn
         ui.fill(255);
-        // ui.line(x+length/4, y+(size + (linelength/4)), x+length/4, y+(size + (linelength/4) - (diameter/2)));
         ui.line(x+3*(length/4),y+(size + (linelength/4)), x+3*(length/4),y+(size + (linelength/4) - (diameter/2))); 
         ui.line(x+(length/4),y+(size + 3*(linelength/4)), x+(length/4),y+(size + 3*(linelength/4) - (diameter/2))); 
-      //  ui.line(x+3*(length/4),y+(size + 3*(linelength/4)), x+3*(length/4),y+(size + 3*(linelength/4) - (diameter/2)));
+     
       
         
         // top left circle 
@@ -71,7 +66,6 @@ public class RadarBorder extends UIElement {
         ui.translate(x+3*(length/4),y+(size + (linelength/4)));
         ui.rotate(rotation2);
         ui.line(0,0,diameter/2 -5,diameter/2-5); 
-       // rotation2 += 0.35f;
         rotation2 -= 0.2f;
         ui.popMatrix();
 
@@ -81,7 +75,6 @@ public class RadarBorder extends UIElement {
         ui.translate(x+(length/4),y+(size + 3*(linelength/4)));
         ui.rotate(rotation3);
         ui.line(0,0,diameter/2 -5,diameter/2-5); 
-        // rotation3 += 0.35f;
         rotation3 -= 0.2f;
         ui.popMatrix();
 

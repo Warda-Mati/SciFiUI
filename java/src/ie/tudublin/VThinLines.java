@@ -6,8 +6,6 @@ public class VThinLines extends UIElement
 {
     private float distance;
 
-
-
 public VThinLines(float x, float y, float distance, PApplet ui)
 {
     super(x, y, ui);
