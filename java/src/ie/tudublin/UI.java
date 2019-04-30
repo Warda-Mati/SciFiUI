@@ -103,7 +103,8 @@ public class UI extends PApplet
 
        
         
-        // radar Border
+        // radar Border in the middle 
+        
         for (int i=0; i < 9; i++) 
         {
             UIElement bb = new RadarBorder(250+(i* 105) , height/2 +20, 80, 10, this , "Radar"); // x (distance), y, move up/down, size 
