@@ -78,6 +78,7 @@ public class UI extends PApplet
        songs[14] = minim.loadFile("Prem Ratan.mp3");
        songs[15] = minim.loadFile("Dilli wali girlfriend.mp3");
        songs[16] = minim.loadFile("Mere Rashke Qamar.mp3");
+       // added beats 
        songs[17] = minim.loadFile("Beat_1.mp3");
        songs[18] = minim.loadFile("Yung Kartz.mp3");
      
