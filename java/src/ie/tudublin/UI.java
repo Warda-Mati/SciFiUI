@@ -60,7 +60,7 @@ public class UI extends PApplet
      chart = new ChordChart(940, 80, 360, 290, this);// x, y, width, height
  
  
-        // songs name
+        // songs names 
        minim = new Minim(this);
        songs[1] = minim.loadFile("musicrap1.mp3");
        songs[2] = minim.loadFile("kala.mp3");
@@ -78,7 +78,6 @@ public class UI extends PApplet
        songs[14] = minim.loadFile("Prem Ratan.mp3");
        songs[15] = minim.loadFile("Dilli wali girlfriend.mp3");
        songs[16] = minim.loadFile("Mere Rashke Qamar.mp3");
-       // added beats 
        songs[17] = minim.loadFile("Beat_1.mp3");
        songs[18] = minim.loadFile("Yung Kartz.mp3");
      
