@@ -38,59 +38,14 @@ Using the distance function, if you hover over the circle buttons, which are obj
 
 What I am most proud of is the elaborate design I was able to create. It took a lot of classes for each individual element, even for small designs such as lines, but in the end the design turned out to be elegant and colorful. As well as that it just fit in of what I imagined a futuristic neon DJ system would be, not just in the design of the interface but also the funcionality. I'm impressed that I could make some functions such as playing songs and adjusting volume work. Last of all, I'm proud of the concepts of OOP that I have learned and practice I have gained over the month I have been working on the UI.
 
-# Markdown Tutorial
+#Emphasis
 
-This is *emphasis*
-used 
-Polymorphism  eg UI Element array list that contained many different sub classes. 
-Abstract class  eg UI Element 
-Interface class eg BackgroundLights that was implemented by BGbuttons.
-Encapsulation   eg  Private field in every class where appropriated.
-Inheritance eg UI Element had many sub classess.
-File I/O eg songList class , data loaded from csv file.
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
+- Polymorphism  eg UI Element array list that contained many different sub classes. 
+- Abstract class  eg UI Element 
+- Interface class eg BackgroundLights that was implemented by BGbuttons.
+- Encapsulation   eg  Private field in every class where appropriated.
+- Inheritance eg UI Element had many sub classess.
+- File I/O eg songList class , data loaded from csv file.
 
 This is an image using a relative URL:
 
@@ -98,17 +53,8 @@ https://github.com/Warda-Mati/SciFiUI/blob/master/images/Screen.PNG
 
 This is an image using an absolute URL:
 
-
 This is a youtube video:
 
 https://www.youtube.com/watch?v=MLEwQDcfNrk&feature=youtu.be)
 
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
 
