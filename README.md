@@ -94,7 +94,7 @@ public void render()
 
 This is an image using a relative URL:
 
-![An image](images/p8.png)
+![An image](images/Screen.png)
 
 This is an image using an absolute URL:
 
@@ -102,7 +102,7 @@ This is an image using an absolute URL:
 
 This is a youtube video:
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://youtu.be/MLEwQDcfNrk)
 
 This is a table:
 
