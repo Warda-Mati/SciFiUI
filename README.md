@@ -94,7 +94,7 @@ public void render()
 
 This is an image using a relative URL:
 
-
+https://github.com/Warda-Mati/SciFiUI/blob/master/images/Screen.PNG
 
 This is an image using an absolute URL:
 
